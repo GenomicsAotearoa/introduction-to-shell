@@ -1,17 +1,18 @@
-# Welcome to MkDocs
+Command line interface (CLI) and graphic user interface (GUI) are different ways of interacting with a computer's operating system. They have different pros and cons. Most people are familiar with the GUI as it is the default interface for most software, particularly on Windows and Mac OS. When using the GUI, you see and interact with visual representations of files, folders, applications, and most other functions of your computer.
+When using the CLI, you work largely with text representations of software, files, folders, input and output.
+The _shell_ is a program that allows you to control your computer by typing instructions on the CLI with a keyboard.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+There are several reasons to learn how to use the CLI:
 
-## Commands
+- For most bioinformatics tools, there are no graphical interfaces. If you want to work in metagenomics or genomics, you're going to need to use the CLI/ shell.
+- The shell gives you power. The command line allows you to work more efficiently. Tasks that are repetitive (e.g. renaming hundreds of files) can be automated. Tasks that are tedious (e.g. testing a range of input parameters) can be simplified.
+- To use remote computers or cloud computing, you often need to use the shell.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+:::::::::::::::::::::::::::::::::::::::::: prereq
 
-## Project layout
+## Getting Started
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+This lesson assumes no prior experience with the tools covered in the workshop.
+However, learners are expected to have some familiarity with biological concepts,
+including the
+concept of genomic variation within a population. Participants should bring their laptops and plan to participate actively.
