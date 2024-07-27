@@ -14,6 +14,8 @@
       
       
       
+        <link rel="next" href="01-introduction/">
+      
       
       <link rel="icon" href="fig/nesi_ga.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
@@ -83,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#getting-started" class="md-skip">
           Skip to content
         </a>
       
@@ -118,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Welcome to MkDocs
+              Home
             
           </span>
         </div>
@@ -276,14 +278,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Welcome to MkDocs
+    Home
   </span>
   
 
@@ -294,7 +294,7 @@
         
   
   <span class="md-ellipsis">
-    Welcome to MkDocs
+    Home
   </span>
   
 
@@ -306,8 +306,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -316,18 +314,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
+      Getting Started
     </span>
   </a>
   
@@ -337,6 +326,126 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01-introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducing the Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="02-the-filesystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Navigating Files and Directories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="03-working-with-files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working with Files and Directories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="04-redirection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redirection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="05-writing-scripts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Writing Scripts and Working with Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="06-organization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Organization
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -358,8 +467,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -368,18 +475,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
-      Commands
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project layout
+      Getting Started
     </span>
   </a>
   
@@ -403,21 +501,23 @@
   
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+  <h1>Home</h1>
+
+<p>Command line interface (CLI) and graphic user interface (GUI) are different ways of interacting with a computer's operating system. They have different pros and cons. Most people are familiar with the GUI as it is the default interface for most software, particularly on Windows and Mac OS. When using the GUI, you see and interact with visual representations of files, folders, applications, and most other functions of your computer.
+When using the CLI, you work largely with text representations of software, files, folders, input and output.
+The <em>shell</em> is a program that allows you to control your computer by typing instructions on the CLI with a keyboard.</p>
+<p>There are several reasons to learn how to use the CLI:</p>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>For most bioinformatics tools, there are no graphical interfaces. If you want to work in metagenomics or genomics, you're going to need to use the CLI/ shell.</li>
+<li>The shell gives you power. The command line allows you to work more efficiently. Tasks that are repetitive (e.g. renaming hundreds of files) can be automated. Tasks that are tedious (e.g. testing a range of input parameters) can be simplified.</li>
+<li>To use remote computers or cloud computing, you often need to use the shell.</li>
 </ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre></div>
+<p>:::::::::::::::::::::::::::::::::::::::::: prereq</p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>This lesson assumes no prior experience with the tools covered in the workshop.
+However, learners are expected to have some familiarity with biological concepts,
+including the
+concept of genomic variation within a population. Participants should bring their laptops and plan to participate actively.</p>
 
 
 
@@ -448,6 +548,28 @@ docs/
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+        
+          
+          <a href="01-introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Introducing the Shell">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Introducing the Shell
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
