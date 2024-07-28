@@ -25,122 +25,120 @@ within our file system.
 Use the commands we've learned so far to navigate to the `shell_data/untrimmed_fastq` directory, if
 you're not already there.
 
-```bash
-$ cd
-$ cd ~/obss_2023/commandline/shell_data
-$ cd untrimmed_fastq
-```
+!!! terminal "code"
 
-What if we want to move back up and out of this directory and to our top level
-directory? Can we type `cd shell_data`? Try it and see what happens.
+    ```bash
+    $ cd
+    $ cd ~/shell_data
+    $ cd untrimmed_fastq
+    ```
 
-```bash
-$ cd shell_data
-```
+!!! terminal-2 "What if we want to move back up and out of this directory and to our top level directory? Can we type `cd shell_data`? Try it and see what happens."
 
-```output
--bash: cd: shell_data: No such file or directory
-```
+    ```bash
+    $ cd shell_data
+    ```
+    
+    ```output
+    -bash: cd: shell_data: No such file or directory
+    ```
 
 Your computer looked for a directory or file called `shell_data` within the
 directory you were already in. It didn't know you wanted to look at a directory level
 above the one you were located in.
 
-We have a special command to tell the computer to move us back or up one directory level.
+!!! terminal-2 "We have a special command to tell the computer to move us back or up one directory level."
 
-```bash
-$ cd ..
-```
+    ```bash
+    $ cd ..
+    ```
 
 Now we can use `pwd` to make sure that we are in the directory we intended to navigate
 to, and `ls` to check that the contents of the directory are correct.
 
-```bash
-$ pwd
-```
+!!! terminal "code"
 
-```output
-/home/<username>/obss_2023/commandline/shell_data
-```
+    ```bash
+    $ pwd
+    ```
 
-```bash
-$ ls
-```
+    ```output
+    /home/<username>//shell_data
+    ```
 
-```output
-sra_metadata  untrimmed_fastq
-```
+    ```bash
+    $ ls
+    ```
+
+    ```output
+    sra_metadata  untrimmed_fastq
+    ```
 
 From this output, we can see that `..` did indeed take us back one level in our file system.
 
-You can chain these together like so:
+!!! terminal-2 "You can chain these together like so:"
 
-```bash
-$ ls ../../
-```
+    ```bash
+    $ ls ../../
+    ```
 
-prints the contents of `/home/<username>/obss_2023`.
-
-::::::::::::::::::::::::::::::::::::::: challenge
+prints the contents of `/home/<username>/shell_data`.
 
 ## Finding hidden directories
 
-First navigate to the `shell_data` directory. There is a hidden directory within this directory. Explore the options for `ls` to
-find out how to see hidden directories. List the contents of the directory and
-identify the name of the text file in that directory.
+!!! question "Let's find a hidden directory and list it's content"
+    First navigate to the `shell_data` directory. There is a hidden directory within this directory. Explore the options for `ls` to
+    find out how to see hidden directories. List the contents of the directory and identify the name of the text file in that directory.
 
-Hint: hidden files and folders in Unix start with `.`, for example `.my_hidden_directory`
+    Hint: hidden files and folders in Unix start with `.`, for example `.my_hidden_directory`
 
-::::::::::::::: solution
 
-## Solution
+    ??? check-to-slot "Solution"
 
-First use the `man` command to look at the options for `ls`.
+        First use the `man` command to look at the options for `ls`.
 
-```bash
-$ man ls
-```
+        ```bash
+        $ man ls
+        ```
 
-The `-a` option is short for `all` and says that it causes `ls` to "not ignore
-entries starting with ." This is the option we want.
+        The `-a` option is short for `all` and says that it causes `ls` to "not ignore
+        entries starting with ." This is the option we want.
 
-```bash
-$ ls -a
-```
+        ```bash
+        $ ls -a
+        ```
 
-```output
-.  ..  .hidden	sra_metadata  untrimmed_fastq
-```
+        ```output
+        .  ..  .hidden	sra_metadata  untrimmed_fastq
+        ```
 
-The name of the hidden directory is `.hidden`. We can navigate to that directory
-using `cd`.
+        The name of the hidden directory is `.hidden`. We can navigate to that directory
+        using `cd`.
 
-```bash
-$ cd .hidden
-```
+        ```bash
+        $ cd .hidden
+        ```
 
-And then list the contents of the directory using `ls`.
+        And then list the contents of the directory using `ls`.
 
-```bash
-$ ls
-```
+        ```bash
+        $ ls
+        ```
 
-```output
-youfoundit.txt
-```
+        ```output
+        youfoundit.txt
+        ```
 
-The name of the text file is `youfoundit.txt`.
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+        The name of the text file is `youfoundit.txt`.
 
 In most commands the flags can be combined together in no particular order to obtain the desired results/output.
 
-```
-$ ls -Fa
-$ ls -laF
-```
+!!! terminal "code"
+
+    ```
+    $ ls -Fa
+    $ ls -laF
+    ```
 
 ## Examining the contents of other directories
 
@@ -150,58 +148,52 @@ directory you are in using the `pwd` command. However, you can also
 give `ls` the names of other directories to view. Navigate to your
 home directory if you are not already there.
 
-```bash
-$ cd
-```
+!!! terminal "code"
 
-Then enter the command:
+    ```bash
+    $ cd
+    ```
 
-```bash
-$ ls ~/obss_2023/commandline/shell_data
-```
+    Then enter the command:
 
-```output
-sra_metadata  untrimmed_fastq
-```
+    ```bash
+    $ ls ~/shell_data
+    ```
+
+    ```output
+    sra_metadata  untrimmed_fastq
+    ```
 
 This will list the contents of the `shell_data` directory without
 you needing to navigate there.
 
 The `cd` command works in a similar way.
 
-Try entering:
+!!! terminal-2 "Try entering:"
 
-```bash
-$ cd
-$ cd ~/obss_2023/commandline/shell_data/untrimmed_fastq
-```
+    ```bash
+    $ cd
+    $ cd ~/shell_data/untrimmed_fastq
+    ```
 
-This will take you to the `untrimmed_fastq` directory without having to go through
-the intermediate directory.
+    This will take you to the `untrimmed_fastq` directory without having to go through
+    the intermediate directory.
 
-::::::::::::::::::::::::::::::::::::::: challenge
+!!! dumbbell "Navigating practice"
 
-## Navigating practice
+    Navigate to your home directory. From there, list the contents of the `untrimmed_fastq`
+    directory.
 
-Navigate to your home directory. From there, list the contents of the `untrimmed_fastq`
-directory.
+    ??? success "Solution"
 
-::::::::::::::: solution
+        ```bash
+        $ cd
+        $ ls ~/shell_data/untrimmed_fastq/
+        ```
 
-## Solution
-
-```bash
-$ cd
-$ ls ~/obss_2023/commandline/shell_data/untrimmed_fastq/
-```
-
-```output
-SRR097977.fastq  SRR098026.fastq
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+        ```output
+        SRR097977.fastq  SRR098026.fastq
+        ```
 
 ## Full vs. Relative Paths
 
@@ -212,37 +204,39 @@ hierarchy. The full path tells you where a directory is in that
 hierarchy. Navigate to the home directory, then enter the `pwd`
 command.
 
-```bash
-$ cd
-$ pwd
-```
+!!! terminal "code"
 
-You will see:
+    ```bash
+    $ cd
+    $ pwd
+    ```
 
-```output
-/home/<username>
-```
+    You will see:
+
+    ```output
+    /home/<username>
+    ```
 
 This is the full name of your home directory. This tells you that you
-are in a directory called `dcuser`, which sits inside a directory called
+are in a directory called `training`, which sits inside a directory called
 `home` which sits inside the very top directory in the hierarchy. The
 very top of the hierarchy is a directory called `/` which is usually
-referred to as the _root directory_. So, to summarize: `dcuser` is a
+referred to as the _root directory_. So, to summarize: `training` is a
 directory in `home` which is a directory in `/`. More on `root` and
 `home` in the next section.
 
-Now enter the following command:
+!!! terminal-2 "Now enter the following command:"
 
-```bash
-$ cd /home/<username>/obss_2023/commandline/shell_data/.hidden
-```
+    ```bash
+    $ cd /home/<username>/shell_data/.hidden
+    ```
 
-This jumps forward multiple levels to the `.hidden` directory.
-Now go back to the home directory.
+    This jumps forward multiple levels to the `.hidden` directory.
+    Now go back to the home directory.
 
-```bash
-$ cd
-```
+    ```bash
+    $ cd
+    ```
 
 You can also navigate to the `.hidden` directory using:
 
@@ -317,30 +311,34 @@ In our case, the `root` directory is **two** levels above our
 `/home/<username>` and `cd /` will take you to `/`. Navigate to the
 `shell_data` directory:
 
-```bash
-$ cd
-$ cd ~/obss_2023/commandline/shell_data
-```
+!!! terminal "code"
 
-Then enter the command:
+    ```bash
+    $ cd
+    $ cd ~/shell_data
+    ```
 
-```bash
-$ ls ~
-```
+    Then enter the command:
 
-```output
-obss_2023
-```
+    ```bash
+    $ ls ~
+    ```
+
+    ```output
+    shell_data
+    ```
 
 This prints the contents of your home directory, without you needing to
 type the full path.
 
-The commands `cd`, and `cd ~` are very useful for quickly navigating back to your home directory. We will be using the `~` character in later lessons to specify our home directory.
+!!! quote ""
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+    The commands `cd`, and `cd ~` are very useful for quickly navigating back to your home directory. We will be using the `~` character in later lessons to specify our home directory.
 
-- The `/`, `~`, and `..` characters represent important navigational shortcuts.
-- Hidden files and directories start with `.` and can be viewed using `ls -a`.
-- Relative paths specify a location starting from the current location, while absolute paths specify a location from the root of the file system.
+!!! graduation-cap "Summary"
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    - The `/`, `~`, and `..` characters represent important navigational shortcuts.
+    - Hidden files and directories start with `.` and can be viewed using `ls -a`.
+    - Relative paths specify a location starting from the current location, while absolute paths specify a location from the root of the file system.
+
+
