@@ -19,7 +19,7 @@
     - To use remote computers or cloud computing, you often need to use the shell.
 
 - - - 
-    
+
 <!--- check -->
 
 | **Lesson**                                         | **Overview** | 
@@ -34,12 +34,13 @@
  - - - 
 
 
-## Getting Started
+!!! plane-depart "Getting Started"
 
-This lesson assumes no prior experience with the tools covered in the workshop.
-However, learners are expected to have some familiarity with biological concepts,
-including the
-concept of genomic variation within a population. Participants should bring their laptops and plan to participate actively.
+
+    This lesson assumes no prior experience with the tools covered in the workshop.
+    However, learners are expected to have some familiarity with biological concepts,
+    including the
+    concept of genomic variation within a population. Participants should bring their laptops and plan to participate actively.
 
 - - - 
 
