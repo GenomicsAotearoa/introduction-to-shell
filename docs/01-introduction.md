@@ -56,58 +56,27 @@ When we say a 'remote server', we are talking about a computer that is not the o
 You will access the Carpentries remote server where everything is prepared for the lesson.
 We will learn the basics of the shell by manipulating some data files. Some of these files are very large
 , and would take time to download to your computer.
-We will also be using several bioinformatic packages in later lessons and installing all of the software
-would take up time even more time. A 'ready-to-go' server lets us focus on learning.
 
 
-```output
-Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-137-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  System information as of Mon 13 Mar 2023 03:57:46 AM UTC
-
-  System load:  0.0                Processes:             192
-  Usage of /:   20.3% of 98.27GB   Users logged in:       0
-  Memory usage: 25%                IPv4 address for eth0: 172.31.12.214
-  Swap usage:   0%
-
-  Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
-
-178 updates can be applied immediately.
-108 of these updates are standard security updates.
-To see these additional updates run: apt list --upgradable
-
-
-Last login: Fri Mar 10 03:14:44 2023 from 72.83.168.14
-```
-
-This provides a lot of information about the remote server that you're logging into. We're not going to use most of this information for
-our workshop, so you can clear your screen using the `clear` command.
 
 Type the word `clear` into the terminal and press the `Enter` key.
 
-```bash
-$ clear
-```
+!!! terminal "code"
+
+    ```bash
+    $ clear
+    ```
 
 This will scroll your screen down to give you a fresh screen and will make it easier to read.
 You haven't lost any of the information on your screen. If you scroll up, you can see everything that has been output to your screen
 up until this point.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::: callout
 
-## Tip
+!!! tip "Hot-key combinations are shortcuts for performing common commands."
 
-Hot-key combinations are shortcuts for performing common commands.
-The hot-key combination for clearing the console is `Ctrl+L`. Feel free to try it and see for yourself.
+    The hot-key combination for clearing the console is `Ctrl+L`. Feel free to try it and see for yourself.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Navigating your file system
 
@@ -120,35 +89,11 @@ which hold files or other directories.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+!!! terminal "code"
 
-## Preparation Magic
-
-You may have a prompt (the characters to the left of the cursor) that looks different from the `$` sign character used here.
-If you would like to change your prompt to match the example prompt, first type the command:
-`echo $PS1`
-into your shell, followed by pressing the <kbd>Enter</kbd> key.
-
-This will print the bash special characters that are currently defining your prompt.
-To change the prompt to a `$` (followed by a space), enter the command:
-`PS1='$ '`
-Your window should look like our example in this lesson.
-
-To change back to your original prompt, type in the output of the previous command `echo $PS1` (this will be different depending on the
-original configuration) between the quotes in the following command:
-`PS1=""`
-
-For example, if the output of `echo $PS1` was `\u@\h:\w $ `,
-then type those characters between the quotes in the above command: `PS1="\u@\h:\w $ "`.
-Alternatively, you can reset your original prompt by exiting the shell and opening a new session.
-
-This isn't necessary to follow along (in fact, your prompt may have other helpful information you want to know about). This is up to you!
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-```bash
-$
-```
+    ```bash
+    $
+    ```
 
 The dollar sign is a **prompt**, which shows us that the shell is waiting for input;
 your shell may use a different character as a prompt and may add information before
@@ -166,24 +111,27 @@ Here,
 the computer's response is `/home/<username>`,
 which is the top level directory within NeSI:
 
-```bash
-$ pwd
-```
+!!! terminal "code"
+    ```bash
+    $ pwd
+    ```
 
-```output
-/home/<username>
-```
+    ```output
+    /home/<username>
+    ```
 
 Let's look at how our file system is organized. We can see what files and subdirectories are in this directory by running `ls`,
 which stands for "listing":
 
-```bash
-$ ls
-```
+!!! terminal "code"
 
-```output
-obss_2023
-```
+    ```bash
+    $ ls
+    ```
+
+    ```output
+    shell_data
+    ```
 
 `ls` prints the names of the files and directories in the current directory in
 alphabetical order,
@@ -194,111 +142,80 @@ The command to change locations in our file system is `cd`, followed by a
 directory name to change our working directory.
 `cd` stands for "change directory".
 
-Let's say we want to navigate to the `obss_2023/commandline/shell_data` directory we saw above. We can
+Let's say we want to navigate to the `shell_data` directory we saw above. We can
 use the following command to get there:
 
-```bash
-$ cd obss_2023
-```
 
-Let's look at what is in this directory:
+!!! terminal "code"
 
-```bash
-$ ls
-```
+    ```bash
+    cd shell_data
+    ```
 
-```output
-commandline  genome_assembly  genomic_dna  intro_git  intro_snakemake  nanopore
-```
+    and take a look
 
-And we'll then navigate into `commandline`
+    ```bash
+    $ ls
+    ```
 
-```bash
-cd commandline
-```
-
-and take a look
-
-```bash
-$ ls
-```
-
-```output
-shell4b_data  shell_data
-```
-
-And then we'll `cd` into `shell_data`
-
-```bash
-cd shell_data
-```
-
-And take a look
-
-```bash
-ls
-```
-
-```output
-sra_metadata  untrimmed_fastq
-```
+    ```output
+    sra_metadata  untrimmed_fastq
+    ```
 
 We can make the `ls` output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
-```bash
-$ ls -F
-```
+!!! terminal "code"
 
-```output
-sra_metadata/  untrimmed_fastq/
-```
+    ```bash
+    $ ls -F
+    ```
 
-Anything with a "/" after it is a directory. Things with a "\*" after them are programs. If
-there are no decorations, it's a file.
+    ```output
+    sra_metadata/  untrimmed_fastq/
+    ```
 
-`ls` has lots of other options. To find out what they are, we can type:
+!!! circle-info "what is `/`"
 
-```bash
-$ man ls
-```
+    Anything with a `/` after it is a directory. Things with a "\*" after them are programs. If
+    there are no decorations, it's a file.
 
-`man` (short for manual) displays detailed documentation (also referred as man page or man file)
-for `bash` commands. It is a powerful resource to explore `bash` commands, understand
-their usage and flags. Some manual files are very long. You can scroll through the
-file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page
-and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd>
-to quit.
 
-::::::::::::::::::::::::::::::::::::::: challenge
+!!! quote "`ls` has lots of other options. To find out what they are, we can type:"
 
-## Challenge
+    ```bash
+    $ man ls
+    ```
 
-Use the `-l` option for the `ls` command to display more information for each item
-in the directory. What is one piece of additional information this long format
-gives you that you don't see with the bare `ls` command?
+    `man` (short for manual) displays detailed documentation (also referred as man page or man file)
+    for `bash` commands. It is a powerful resource to explore `bash` commands, understand
+    their usage and flags. Some manual files are very long. You can scroll through the
+    file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page
+    and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd>
+    to quit.
 
-::::::::::::::: solution
 
-## Solution
+!!! question "Challenge"
 
-```bash
-$ ls -l
-```
+    Use the `-l` option for the `ls` command to display more information for each item
+    in the directory. What is one piece of additional information this long format
+    gives you that you don't see with the bare `ls` command?
 
-```output
-total 8
-drwxr-x--- 2 dcuser dcuser 4096 Jul 30  2015 sra_metadata
-drwxr-xr-x 2 dcuser dcuser 4096 Nov 15  2017 untrimmed_fastq
-```
+    !!! check-to-slot "solution"
 
-The additional information given includes the name of the owner of the file,
-when the file was last modified, and whether the current user has permission
-to read and write to the file.
+    ```bash
+    $ ls -l
+    ```
 
-:::::::::::::::::::::::::
+    ```output
+    total 8
+    drwxr-x--- 2 training training 4096 Jul 30  2015 sra_metadata
+    drwxr-xr-x 2 training training 4096 Nov 15  2017 untrimmed_fastq
+    ```
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    The additional information given includes the name of the owner of the file,
+    when the file was last modified, and whether the current user has permission
+    to read and write to the file.
 
 No one can possibly learn all of these arguments, that's what the manual page
 is for. You can (and should) refer to the manual page or other help files
@@ -306,14 +223,16 @@ as needed.
 
 Let's go into the `untrimmed_fastq` directory and see what is in there.
 
-```bash
-$ cd untrimmed_fastq
-$ ls -F
-```
+!!! terminal "code"
 
-```output
-SRR097977.fastq  SRR098026.fastq
-```
+    ```bash
+    $ cd untrimmed_fastq
+    $ ls -F
+    ```
+
+    ```output
+    SRR097977.fastq  SRR098026.fastq
+    ```
 
 This directory contains two files with `.fastq` extensions. FASTQ is a format
 for storing information about sequencing reads and their quality.
@@ -329,24 +248,27 @@ directory or file name.
 
 Return to your home directory:
 
-```bash
-$ cd
-```
+!!! terminal "code"
+    ```bash
+    $ cd
+    ```
 
-then enter:
+    then enter:
 
-```bash
-$ cd obss_2023/com<tab>/she<tab>_<tab>
-```
+    ```bash
+    $ cd she<tab>
+    ```
 
-The shell will fill in the rest of the directory name for `commandline` and then `shell_data`.
+The shell will fill in the rest of the directory name for `shell_data`.
 
 Now change directories to `untrimmed_fastq` in `shell_data`
 
-```bash
-$ cd shell_data
-$ cd untrimmed_fastq
-```
+!!! terminal "code"
+
+    ```bash
+    $ cd shell_data
+    $ cd untrimmed_fastq
+    ```
 
 Using tab complete can be very helpful. However, it will only autocomplete
 a file or directory name if you've typed enough characters to provide
@@ -355,51 +277,53 @@ a unique identifier for the file or directory you are trying to access.
 For example, if we now try to list the files which names start with `SR`
 by using tab complete:
 
-```bash
-$ ls SR<tab>
-```
+!!! terminal "code"
+
+    ```bash
+    $ ls SR<tab>
+    ```
 
 The shell auto-completes your command to `SRR09`, because all file names in
 the directory begin with this prefix. When you hit
 <kbd>Tab</kbd> again, the shell will list the possible choices.
 
-```bash
-$ ls SRR09<tab><tab>
-```
+!!! terminal "code"
 
-```output
-SRR097977.fastq  SRR098026.fastq
-```
+    ```bash
+    $ ls SRR09<tab><tab>
+    ```
+
+    ```output
+    SRR097977.fastq  SRR098026.fastq
+    ```
 
 Tab completion can also fill in the names of programs, which can be useful if you
 remember the beginning of a program name.
 
-```bash
-$ pw<tab><tab>
-```
+!!! terminal "code"
 
-```output
-pwck      pwconv    pwd       pwdx      pwunconv
-```
+    ```bash
+    $ pw<tab><tab>
+    ```
+
+    ```output
+    pwck      pwconv    pwd       pwdx      pwunconv
+    ```
 
 Displays the name of every program that starts with `pw`.
 
-## Summary
+!!! graduation-cap "Summary"
 
-We now know how to move around our file system using the command line.
-This gives us an advantage over interacting with the file system through
-a GUI as it allows us to work on a remote server, carry out the same set of operations
-on a large number of files quickly, and opens up many opportunities for using
-bioinformatic software that is only available in command line versions.
-
-In the next few episodes, we'll be expanding on these skills and seeing how
-using the command line shell enables us to make our workflow more efficient and reproducible.
-
-:::::::::::::::::::::::::::::::::::::::: keypoints
-
-- The shell gives you the ability to work more efficiently by using keyboard commands rather than a GUI.
-- Useful commands for navigating your file system include: `ls`, `pwd`, and `cd`.
-- Most commands take options (flags) which begin with a `-`.
-- Tab completion can reduce errors from mistyping and make work more efficient in the shell.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    We now know how to move around our file system using the command line.
+    This gives us an advantage over interacting with the file system through
+    a GUI as it allows us to work on a remote server, carry out the same set of operations
+    on a large number of files quickly, and opens up many opportunities for using
+    bioinformatic software that is only available in command line versions.
+    
+    In the next few episodes, we'll be expanding on these skills and seeing how
+    using the command line shell enables us to make our workflow more efficient and reproducible.
+         
+    - The shell gives you the ability to work more efficiently by using keyboard commands rather than a GUI.
+    - Useful commands for navigating your file system include: `ls`, `pwd`, and `cd`.
+    - Most commands take options (flags) which begin with a `-`.
+    - Tab completion can reduce errors from mistyping and make work more efficient in the shell.
