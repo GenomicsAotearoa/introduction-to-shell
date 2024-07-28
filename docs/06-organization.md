@@ -1,23 +1,18 @@
----
-title: Project Organization
-teaching: 15
-exercises: 15
----
+# 6. Project Organization
 
-::::::::::::::::::::::::::::::::::::::: objectives
 
-- Create a file system for a bioinformatics project.
-- Explain what types of files should go in your `docs`, `data`, and `results` directories.
-- Use the `history` command and a text editor like `nano` to document your work on your project.
+!!! clipboard-list  "Lesson objectives"
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    - Create a file system for a bioinformatics project.
+    - Explain what types of files should go in your `docs`, `data`, and `results` directories.
+    - Use the `history` command and a text editor like `nano` to document your work on your project.
 
-:::::::::::::::::::::::::::::::::::::::: questions
+!!! clipboard-question "questions"
 
-- How can I organize my file system for a new bioinformatics project?
-- How can I document my work?
+    - How can I organize my file system for a new bioinformatics project?
+    - How can I document my work?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Getting your project started
 

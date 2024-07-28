@@ -1,24 +1,19 @@
----
-title: Working with Files and Directories
-teaching: 30
-exercises: 15
----
+# 3. Working with Files and Directories
 
-::::::::::::::::::::::::::::::::::::::: objectives
 
-- View, search within, copy, move, and rename files. Create new directories.
-- Use wildcards (`*`) to perform operations on multiple files.
-- Make a file read only.
-- Use the `history` command to view and repeat recently used commands.
+!!! clipboard-list "Lesson objectives"
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    - View, search within, copy, move, and rename files. Create new directories.
+    - Use wildcards (`*`) to perform operations on multiple files.
+    - Make a file read only.
+    - Use the `history` command to view and repeat recently used commands.
 
-:::::::::::::::::::::::::::::::::::::::: questions
+!!! clipboard-question "questions"
 
-- How can I view and search file contents?
-- How can I create, copy and delete files and directories?
-- How can I control who has permission to modify a file?
-- How can I repeat recently used commands?
+    - How can I view and search file contents?
+    - How can I create, copy and delete files and directories?
+    - How can I control who has permission to modify a file?
+    - How can I repeat recently used commands?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

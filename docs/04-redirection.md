@@ -1,22 +1,17 @@
----
-title: Redirection
-teaching: 30
-exercises: 15
----
+# 4. Redirection
 
-::::::::::::::::::::::::::::::::::::::: objectives
 
-- Employ the `grep` command to search for information within files.
-- Print the results of a command to a file.
-- Construct command pipelines with two or more stages.
-- Use `for` loops to run the same command for several input files.
+!!! clipboard-list "Lesson Objectives"
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    - Employ the `grep` command to search for information within files.
+    - Print the results of a command to a file.
+    - Construct command pipelines with two or more stages.
+    - Use `for` loops to run the same command for several input files.
 
-:::::::::::::::::::::::::::::::::::::::: questions
+!!! clipboard-question "questions"
 
-- How can I search within files?
-- How can I combine existing commands to do new things?
+    - How can I search within files?
+    - How can I combine existing commands to do new things?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

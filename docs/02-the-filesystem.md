@@ -1,25 +1,19 @@
----
-title: Navigating Files and Directories
-teaching: 30
-exercises: 20
----
+# 2. Navigating Files and Directories
 
-::::::::::::::::::::::::::::::::::::::: objectives
+!!! clipboard-list "Lesson objectives"
 
-- Use a single command to navigate multiple steps in your directory structure, including moving backwards (one level up).
-- Perform operations on files in directories outside your working directory.
-- Work with hidden directories and hidden files.
-- Interconvert between absolute and relative paths.
-- Employ navigational shortcuts to move around your file system.
+    - Use a single command to navigate multiple steps in your directory structure, including moving backwards (one level up).
+    - Perform operations on files in directories outside your working directory.
+    - Work with hidden directories and hidden files.
+    - Interconvert between absolute and relative paths.
+    - Employ navigational shortcuts to move around your file system.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+!!! clipboard-question "questions"
 
-:::::::::::::::::::::::::::::::::::::::: questions
+    - How can I perform operations on files outside of my working directory?
+    - What are some navigational shortcuts I can use to make my work more efficient?
+    
 
-- How can I perform operations on files outside of my working directory?
-- What are some navigational shortcuts I can use to make my work more efficient?
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Moving around the file system
 

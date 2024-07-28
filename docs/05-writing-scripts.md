@@ -1,23 +1,17 @@
----
-title: Writing Scripts and Working with Data
-teaching: 20
-exercises: 20
----
+# 5. Writing Scripts and Working with Data
 
-::::::::::::::::::::::::::::::::::::::: objectives
 
-- Use the `nano` text editor to modify text files.
-- Write a basic shell script.
-- Use the `bash` command to execute a shell script.
-- Use `chmod` to make a script an executable program.
+!!! clipboard-list "Lesson objectives"
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    - Use the `nano` text editor to modify text files.
+    - Write a basic shell script.
+    - Use the `bash` command to execute a shell script.
+    - Use `chmod` to make a script an executable program.
 
-:::::::::::::::::::::::::::::::::::::::: questions
+!!! clipboard-question "questions"
 
-- How can we automate a commonly used set of commands?
+    - How can we automate a commonly used set of commands?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 <script language="javascript" type="text/javascript">
 function set_page_view_defaults() {

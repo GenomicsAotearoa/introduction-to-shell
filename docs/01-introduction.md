@@ -1,26 +1,20 @@
----
-title: Introducing the Shell
-teaching: 20
-exercises: 10
----
+# 1. Introducing the Shell
 
-::::::::::::::::::::::::::::::::::::::: objectives
+!!! clipboard-list "Lesson Objectives"
 
-- Describe key reasons for learning shell.
-- Navigate your file system using the command line.
-- Access and read help files for `bash` programs and use help files to identify useful command options.
-- Demonstrate the use of tab completion, and explain its advantages.
+    - Describe key reasons for learning shell.
+    - Navigate your file system using the command line.
+    - Access and read help files for `bash` programs and use help files to identify useful command options.
+    - Demonstrate the use of tab completion, and explain its advantages.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: questions
+!!! clipboard-question "questions"
 
-- What is a command shell and why would I use one?
-- How can I move around on my computer?
-- How can I see what files and directories I have?
-- How can I specify the location of a file or directory on my computer?
+    - What is a command shell and why would I use one?
+    - How can I move around on my computer?
+    - How can I see what files and directories I have?
+    - How can I specify the location of a file or directory on my computer?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 **This lesson has been adapted from the original [Data Carpentry - Shell Genomics](https://datacarpentry.org/shell-genomics/) to be run using the NeSI infrastructure as part of the Otago Bioinformatics Spring School instead of AWS.**
 
@@ -65,34 +59,6 @@ We will learn the basics of the shell by manipulating some data files. Some of t
 We will also be using several bioinformatic packages in later lessons and installing all of the software
 would take up time even more time. A 'ready-to-go' server lets us focus on learning.
 
-## How to access the remote server
-
-During this workshop we will be running the material on the NeSI platform, using the Jupyter interface, however it is
-also possible to run this material locally on your own machine.
-
-One of the differences between running on NeSI or your own machine is that on NeSI we preinstall popular software and make it available to our users, whereas on your own machine you need to install the software yourself (e.g. using a package manager such as conda).
-
-### Connect to Jupyter on NeSI
-
-1. Connect to [https://jupyter.nesi.org.nz](https://jupyter.nesi.org.nz)
-2. <p>Enter NeSI username, HPC password and 6 digit second factor token (as set on <a href="https://my.nesi.org.nz/account/hpc-account">MyNeSI</a>)<br>![image](fig/nesi_images/Login_jupyterhubNeSI.png)</p>
-3. <p>Choose server options as below
-   <br>make sure to choose the correct project code `nesi02659`, number of CPUs **4**, memory **4GB** prior to pressing the Start button.
-
-<br>![image](fig/nesi_images/ServerOptions_jupyterhubNeSI.png){width="700"}
-
-4. <p>Start a terminal session from the JupyterLab launcher<br>![image](fig/nesi_images/ga-vl01jupyterhubNeSI.png){width="500"}
-
-::::::::::::::::::::::::::::::::::::::::: callout
-
-You can log-in to the remote server using the [instructions from the Introduction to Cloud Computing for Genomics lesson](https://datacarpentry.org/cloud-genomics/02-logging-onto-cloud#logging-onto-a-cloud-instance).
-Your instructor will supply to you the `ip_address` and password that you need to login.
-
-Each of you will have a different `ip_address`. This will
-prevent us from accidentally changing each other's files as we work through the
-exercises. The password will be the same for everyone.
-
-After logging in, you will see a screen showing something like this:
 
 ```output
 Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-137-generic x86_64)
