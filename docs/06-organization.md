@@ -55,72 +55,62 @@ In this exercise we will setup a file system for the project we will be working 
 
 We will start by creating a directory that we can use for the rest of the workshop. First navigate to your home directory. Then confirm that you are in the correct directory using the `pwd` command.
 
-```bash
-$ cd
-$ pwd
-```
+!!! terminal "code"
 
-You should see the output:
+    ```bash
+    $ cd
+    $ pwd
+    ```
 
-```output
-/home/dcuser  
-```
+    You should see the output:
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+    ```output
+    /home/training 
+    ```
+!!! tip "If you aren't in your home directory, the easiest way to get there is to enter the command `cd`, which always returns you to home."
 
-### Tip
 
-If you aren't in your home directory, the easiest way to get there is to enter the command `cd`, which
-always returns you to home.
+!!! dumbbell Exercise
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    Use the `mkdir` command to make the following directories:
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+    - `introshell`
+    - `introshell/docs`
+    - `introshell/data`
+    - `introshell/results`
 
-### Exercise
 
-Use the `mkdir` command to make the following directories:
+??? success "Solution"
 
-- `dc_workshop`
-- `dc_workshop/docs`
-- `dc_workshop/data`
-- `dc_workshop/results`
-
-:::::::::::::::  solution
-
-### Solution
-
-```bash
-$ mkdir dc_workshop
-$ mkdir dc_workshop/docs
-$ mkdir dc_workshop/data
-$ mkdir dc_workshop/results
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+    ```bash
+    $ mkdir introshell 
+    $ mkdir introshell/docs
+    $ mkdir introshell/data
+    $ mkdir introshell/results
+    ```
 
 Use `ls -R` to verify that you have created these directories. The `-R` option for `ls` stands for recursive. This option causes
 `ls` to return the contents of each subdirectory within the directory
 iteratively.
 
-```bash
-$ ls -R dc_workshop
-```
+!!! terminal "code"
 
-You should see the following output:
+    ```bash
+    $ ls -R introshell 
+    ```
 
-```output
-dc_workshop/:
-data  docs  results
+    You should see the following output:
 
-dc_workshop/data:
+    ```output
+    introshell/:
+    data  docs  results
 
-dc_workshop/docs:
+    introshell/data:
 
-dc_workshop/results: 
-```
+    introshell/docs:
+
+    introshell/results: 
+    ```
 
 ## Organizing your files
 
@@ -160,55 +150,48 @@ The `history` command is a convenient way to document all the
 commands you have used while analyzing and manipulating your project
 files. Let's document the work we have done on our project so far.
 
-View the commands that you have used so far during this session using `history`:
+!!! terminal-2 "View the commands that you have used so far during this session using `history`:"
 
-```bash
-$ history
-```
+    ```bash
+    $ history
+    ```
 
 The history likely contains many more commands than you have used for the current project. Let's view the last
 several commands that focus on just what we need for this project.
 
-View the last n lines of your history (where n = approximately the last few lines you think relevant). For our example, we will use the last 7:
+!!! terminal-2 "View the last n lines of your history (where n = approximately the last few lines you think relevant). For our example, we will use the last 7:"
 
-```bash
-$ history | tail -n 7
-```
+    ```bash
+    $ history | tail -n 7
+    ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+!!! dumbbell "Exercise"
 
-### Exercise
+    Using your knowledge of the shell, use the append redirect `>>` to create a file called
+    `introshell_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
+    `introshell_log_2017_10_27.sh`)
 
-Using your knowledge of the shell, use the append redirect `>>` to create a file called
-`dc_workshop_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
-`dc_workshop_log_2017_10_27.sh`)
+    ??? success "Solution"
 
-:::::::::::::::  solution
+        ```bash
+        $ history | tail -n 7 >> introshell_log_2017_10_27.sh
+        ```
 
-### Solution
+    Note we used the last 7 lines as an example, the number of lines may vary.
 
-```bash
-$ history | tail -n 7 >> dc_workshop_log_2017_10_27.sh
-```
-
-Note we used the last 7 lines as an example, the number of lines may vary.
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 You may have noticed that your history contains the `history` command itself. To remove this redundancy
 from our log, let's use the `nano` text editor to fix the file:
 
 ```bash
-$ nano dc_workshop_log_2017_10_27.sh
+$ nano introshell_log_2017_10_27.sh
 ```
 
 (Remember to replace the `2017_10_27` with your workshop date.)
 
 From the `nano` screen, you can use your cursor to navigate, type, and delete any redundant lines.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+
 
 ### Navigating in Nano
 
@@ -225,7 +208,7 @@ Here are some useful keyboard shortcuts for moving around within a text document
 | <kbd>Ctrl</kbd>\-<kbd>E</kbd>  | to move to the end of the current line       | 
 | <kbd>Ctrl</kbd>\-<kbd>W</kbd>  | to search                                    | 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 Add a date line and comment to the line where you have created the directory. Recall that any
 text on a line after a `#` is ignored by bash when evaluating the text as code. For example:
@@ -244,38 +227,38 @@ Your file should look something like this:
 # 2017_10_27
 # Created sample directories for the Data Carpentry workshop
 
-mkdir dc_workshop
-mkdir dc_workshop/docs
-mkdir dc_workshop/data
-mkdir dc_workshop/results
+mkdirintroshell 
+mkdir introshell/docs
+mkdir introshell/data
+mkdir introshell/results
 ```
 
 If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
-your `dc_workshop` directory and all of its subdirectories. Look at your directory
+your `introshell` directory and all of its subdirectories. Look at your directory
 contents to verify the directory is gone.
 
 ```bash
-$ rm -r dc_workshop
+$ rm -rintroshell 
 $ ls
 ```
 
 ```output
-shell_data	dc_workshop_log_2017_10_27.sh
+shell_data	introshell_log_2017_10_27.sh
 ```
 
-Then run your workshop log file as a bash script. You should see the `dc_workshop`
+Then run your workshop log file as a bash script. You should see the `introshell`
 directory and all of its subdirectories reappear.
 
 ```bash
-$ bash dc_workshop_log_2017_10_27.sh
+$ bash introshell_log_2017_10_27.sh
 $ ls
 ```
 
 ```output
-shell_data	dc_workshop dc_workshop_log_2017_10_27.sh
+shell_data	introshell introshell_log_2017_10_27.sh
 ```
 
-It's important that we keep our workshop log file outside of our `dc_workshop` directory
+It's important that we keep our workshop log file outside of our `introshell` directory
 if we want to use it to recreate our work. It's also important for us to keep it up to
 date by regularly updating with the commands that we used to generate our results files.
 
