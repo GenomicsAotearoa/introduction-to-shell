@@ -13,7 +13,7 @@
     - How can I search within files?
     - How can I combine existing commands to do new things?
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Searching files
 
@@ -26,7 +26,7 @@ regular expressions in this lesson, and are instead going to specify the strings
 we are searching for.
 Let's give it a try!
 
-::::::::::::::::::::::::::::::::::::::::: callout
+
 
 ## Nucleotide abbreviations
 
@@ -36,18 +36,20 @@ in a sequencing file represents a position where the sequencing machine was not 
 confidently determine the nucleotide in that position. You can think of an `N` as being aNy
 nucleotide at that position in the DNA sequence.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 We'll search for strings inside of our fastq files. Let's first make sure we are in the correct
 directory:
 
-```bash
-$ cd ~/obss_2023/commandline/shell_data/untrimmed_fastq
-```
+!!! terminal "code"
+
+    ```bash
+    $ cd ~/shell_data/untrimmed_fastq
+    ```
 
 Suppose we want to see how many reads in our file have really bad segments containing 10 consecutive unknown nucleotides (Ns).
 
-::::::::::::::::::::::::::::::::::::::::: callout
+
 
 ## Determining quality
 
@@ -58,16 +60,17 @@ research you will most likely use a bioinformatics tool that has a built-in prog
 filtering out low-quality reads. You'll learn how to use one such tool in
 [a later lesson](https://datacarpentry.org/wrangling-genomics/02-quality-control).
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Let's search for the string NNNNNNNNNN in the SRR098026 file:
 
-```bash
-$ grep NNNNNNNNNN SRR098026.fastq
-```
+!!! terminal-2 "Let's search for the string `NNNNNNNNNN` in the SRR098026 file:"
+
+
+    ```bash
+    $ grep NNNNNNNNNN SRR098026.fastq
+    ```
 
 This command returns a lot of output to the terminal. Every single line in the SRR098026
-file that contains at least 10 consecutive Ns is printed to the terminal, regardless of how long or short the file is.
+file that contains at least 10 consecutive `N`s is printed to the terminal, regardless of how long or short the file is.
 We may be interested not only in the actual sequence which contains this string, but
 in the name (or identifier) of that sequence. We discussed in a previous lesson
 that the identifier line immediately precedes the nucleotide sequence for each read
@@ -79,73 +82,69 @@ We can use the `-B` argument for grep to return a specific number of lines befor
 each match. The `-A` argument returns a specific number of lines after each matching line. Here we want the line _before_ and the two lines _after_ each
 matching line, so we add `-B1 -A2` to our grep command:
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq
-```
+!!! terminal-2 "code"
 
-One of the sets of lines returned by this command is:
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq
+    ```
 
-```output
-@SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
-CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-+SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-```
+    One of the sets of lines returned by this command is:
+    
+    ```output
+    @SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+    CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+    +SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    ```
 
-::::::::::::::::::::::::::::::::::::::: challenge
 
-## Exercise
+!!! dumbbell "Exercise"
 
-1. Search for the sequence `GNATNACCACTTCC` in the `SRR098026.fastq` file.
-   Have your search return all matching lines and the name (or identifier) for each sequence
-   that contains a match.
+    1. Search for the sequence `GNATNACCACTTCC` in the `SRR098026.fastq` file.
+       Have your search return all matching lines and the name (or identifier) for each sequence
+       that contains a match.
+    
+    2. Search for the sequence `AAGTT` in both FASTQ files.
+       Have your search return all matching lines and the name (or identifier) for each sequence
+       that contains a match
 
-2. Search for the sequence `AAGTT` in both FASTQ files.
-   Have your search return all matching lines and the name (or identifier) for each sequence
-   that contains a match.
+    ??? success "Solution"
 
-::::::::::::::: solution
+        1. `grep -B1 GNATNACCACTTCC SRR098026.fastq`
 
-## Solution
+        ```
+        @SRR098026.245 HWUSI-EAS1599_1:2:1:2:801 length=35
+        GNATNACCACTTCCAGTGCTGANNNNNNNGGGATG
+        ```
 
-1. `grep -B1 GNATNACCACTTCC SRR098026.fastq`
+        2. `grep -B1 AAGTT *.fastq`
+        
+        ```
+        SRR097977.fastq-@SRR097977.11 209DTAAXX_Lenski2_1_7:8:3:247:351 length=36
+        SRR097977.fastq:GATTGCTTTAATGAAAAAGTCATATAAGTTGCCATG
+        --
+        SRR097977.fastq-@SRR097977.67 209DTAAXX_Lenski2_1_7:8:3:544:566 length=36
+        SRR097977.fastq:TTGTCCACGCTTTTCTATGTAAAGTTTATTTGCTTT
+        --
+        SRR097977.fastq-@SRR097977.68 209DTAAXX_Lenski2_1_7:8:3:724:110 length=36
+        SRR097977.fastq:TGAAGCCTGCTTTTTTATACTAAGTTTGCATTATAA
+        --
+        SRR097977.fastq-@SRR097977.80 209DTAAXX_Lenski2_1_7:8:3:258:281 length=36
+        SRR097977.fastq:GTGGCGCTGCTGCATAAGTTGGGTTATCAGGTCGTT
+        --
+        SRR097977.fastq-@SRR097977.92 209DTAAXX_Lenski2_1_7:8:3:353:318 length=36
+        SRR097977.fastq:GGCAAAATGGTCCTCCAGCCAGGCCAGAAGCAAGTT
+        --
+        SRR097977.fastq-@SRR097977.139 209DTAAXX_Lenski2_1_7:8:3:703:655 length=36
+        SRR097977.fastq:TTTATTTGTAAAGTTTTGTTGAAATAAGGGTTGTAA
+        --
+        SRR097977.fastq-@SRR097977.238 209DTAAXX_Lenski2_1_7:8:3:592:919 length=36
+        SRR097977.fastq:TTCTTACCATCCTGAAGTTTTTTCATCTTCCCTGAT
+        --
+        SRR098026.fastq-@SRR098026.158 HWUSI-EAS1599_1:2:1:1:1505 length=35
+        SRR098026.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG
+        ```
 
-```
-@SRR098026.245 HWUSI-EAS1599_1:2:1:2:801 length=35
-GNATNACCACTTCCAGTGCTGANNNNNNNGGGATG
-```
-
-2. `grep -B1 AAGTT *.fastq`
-
-```
-SRR097977.fastq-@SRR097977.11 209DTAAXX_Lenski2_1_7:8:3:247:351 length=36
-SRR097977.fastq:GATTGCTTTAATGAAAAAGTCATATAAGTTGCCATG
---
-SRR097977.fastq-@SRR097977.67 209DTAAXX_Lenski2_1_7:8:3:544:566 length=36
-SRR097977.fastq:TTGTCCACGCTTTTCTATGTAAAGTTTATTTGCTTT
---
-SRR097977.fastq-@SRR097977.68 209DTAAXX_Lenski2_1_7:8:3:724:110 length=36
-SRR097977.fastq:TGAAGCCTGCTTTTTTATACTAAGTTTGCATTATAA
---
-SRR097977.fastq-@SRR097977.80 209DTAAXX_Lenski2_1_7:8:3:258:281 length=36
-SRR097977.fastq:GTGGCGCTGCTGCATAAGTTGGGTTATCAGGTCGTT
---
-SRR097977.fastq-@SRR097977.92 209DTAAXX_Lenski2_1_7:8:3:353:318 length=36
-SRR097977.fastq:GGCAAAATGGTCCTCCAGCCAGGCCAGAAGCAAGTT
---
-SRR097977.fastq-@SRR097977.139 209DTAAXX_Lenski2_1_7:8:3:703:655 length=36
-SRR097977.fastq:TTTATTTGTAAAGTTTTGTTGAAATAAGGGTTGTAA
---
-SRR097977.fastq-@SRR097977.238 209DTAAXX_Lenski2_1_7:8:3:592:919 length=36
-SRR097977.fastq:TTCTTACCATCCTGAAGTTTTTTCATCTTCCCTGAT
---
-SRR098026.fastq-@SRR098026.158 HWUSI-EAS1599_1:2:1:1:1505 length=35
-SRR098026.fastq:GNNNNNNNNCAAAGTTGATCNNNNNNNNNTGTGCG
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Redirecting output
 
@@ -165,11 +164,12 @@ Let's try out this command and copy all the records (including all four lines of
 in our FASTQ files that contain
 'NNNNNNNNNN' to another file called `bad_reads.txt`.
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
-```
+!!! terminal "Code"
 
-::::::::::::::::::::::::::::::::::::::::: callout
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+    ```
+
 
 ## File extensions
 
@@ -180,7 +180,7 @@ name it with a `.fastq` extension. However, using a `.fastq` extension will lead
 when we move to using wildcards later in this episode. We'll point out where this becomes
 important. For now, it's good that you're thinking about file extensions!
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 The prompt should sit there a little bit, and then it should look like nothing
 happened. But type `ls`. You should see a new file called `bad_reads.txt`.
@@ -190,73 +190,61 @@ We can check the number of lines in our new file using a command called `wc`.
 in a file. The FASTQ file may change over time, so given the potential for updates,
 make sure your file matches your instructor's output.
 
-As of Sept. 2020, wc gives the following output:
+!!! terminal-2 "As of Sept. 2020, wc gives the following output:"
 
-```bash
-$ wc bad_reads.txt
-```
+    ```bash
+    $ wc bad_reads.txt
+    ```
 
-```output
-  802    1338   24012 bad_reads.txt
-```
+    ```output
+      802    1338   24012 bad_reads.txt
+    ```
 
-This will tell us the number of lines, words and characters in the file. If we
-want only the number of lines, we can use the `-l` flag for `lines`.
+    This will tell us the number of lines, words and characters in the file. If we
+    want only the number of lines, we can use the `-l` flag for `lines`.
+    
+    ```bash
+    $ wc -l bad_reads.txt
+    ```
+    
+    ```output
+    802 bad_reads.txt
+    ```
 
-```bash
-$ wc -l bad_reads.txt
-```
+!!! dumbbell "Exercise"
 
-```output
-802 bad_reads.txt
-```
+    How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
 
-::::::::::::::::::::::::::::::::::::::: challenge
 
-## Exercise
 
-How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
+    ??? success "Solution"
+    
+    ```bash
+    $ wc -l SRR098026.fastq
+    ```
 
-::::::::::::::: solution
-
-## Solution
-
-```bash
-$ wc -l SRR098026.fastq
-```
-
-```output
-996
-```
+    ```output
+    996
+    ```
 
 Now you can divide this number by four to get the number of sequences in your fastq file.
 
-:::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+!!! dumbbell "Exercise"
 
-::::::::::::::::::::::::::::::::::::::: challenge
+    How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns?
 
-## Exercise
+    ??? success "Solution"
+    
+    ```bash
+    $ grep NNN SRR098026.fastq > bad_reads.txt
+    $ wc -l bad_reads.txt
+    ```
 
-How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns?
+    ```output
+    249
+    ```
 
-::::::::::::::: solution
-
-## Solution
-
-```bash
-$ grep NNN SRR098026.fastq > bad_reads.txt
-$ wc -l bad_reads.txt
-```
-
-```output
-249
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We might want to search multiple FASTQ files for sequences that match our search pattern.
 However, we need to be careful, because each time we use the `>` command to redirect output
