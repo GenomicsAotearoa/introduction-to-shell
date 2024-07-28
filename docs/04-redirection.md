@@ -252,63 +252,65 @@ to a file, the new output will replace the output that was already present in th
 This is called "overwriting" and, just like you don't want to overwrite your video recording
 of your kid's first birthday party, you also want to avoid overwriting your data files.
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
-$ wc -l bad_reads.txt
-```
+!!! terminal "code"
+    
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+    $ wc -l bad_reads.txt
+    ```
+    
+    ```output
+    802 bad_reads.txt
+    ```
+!!! terminal "code"
 
-```output
-802 bad_reads.txt
-```
-
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq > bad_reads.txt
-$ wc -l bad_reads.txt
-```
-
-```output
-0 bad_reads.txt
-```
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq > bad_reads.txt
+    $ wc -l bad_reads.txt
+    ```
+    
+    ```output
+    0 bad_reads.txt
+    ```
 
 Here, the output of our second call to `wc` shows that we no longer have any lines in our `bad_reads.txt` file. This is
 because the second file we searched (`SRR097977.fastq`) does not contain any lines that match our
 search sequence. So our file was overwritten and is now empty.
 
-We can avoid overwriting our files by using the command `>>`. `>>` is known as the "append redirect" and will
-append new output to the end of a file, rather than overwriting it.
+!!! terminal-2 "We can avoid overwriting our files by using the command `>>`. `>>` is known as the "append redirect" and will append new output to the end of a file, rather than overwriting it."
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
-$ wc -l bad_reads.txt
-```
 
-```output
-802 bad_reads.txt
-```
-
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq >> bad_reads.txt
-$ wc -l bad_reads.txt
-```
-
-```output
-802 bad_reads.txt
-```
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+    $ wc -l bad_reads.txt
+    ```
+    
+    ```output
+    802 bad_reads.txt
+    ```
+    
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq >> bad_reads.txt
+    $ wc -l bad_reads.txt
+    ```
+    
+    ```output
+    802 bad_reads.txt
+    ```
 
 The output of our second call to `wc` shows that we have not overwritten our original data.
 
-We can also do this with a single line of code by using a wildcard:
+!!! terminal-2 "We can also do this with a single line of code by using a wildcard:"
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.txt
-$ wc -l bad_reads.txt
-```
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.txt
+    $ wc -l bad_reads.txt
+    ```
+    
+    ```output
+    802 bad_reads.txt
+    ```
 
-```output
-802 bad_reads.txt
-```
-
-::::::::::::::::::::::::::::::::::::::::: callout
 
 ## File extensions - part 2
 
@@ -317,19 +319,21 @@ If we already had a file called `bad_reads.fastq` (from our previous `grep` prac
 and then ran the command above using a `.fastq` extension instead of a `.txt` extension, `grep`
 would give us a warning.
 
-```bash
-grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
-```
+!!! terminal "Code"
 
-```output
-grep: input file ‘bad_reads.fastq' is also the output
-```
+    ```bash
+    grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
+    ```
+
+    ```output
+    grep: input file ‘bad_reads.fastq' is also the output
+    ```
 
 `grep` is letting you know that the output file `bad_reads.fastq` is also included in your
 `grep` call because it matches the `*.fastq` pattern. Be careful with this as it can lead to
 some unintended results.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 Since we might have multiple different criteria we want to search for,
 creating a new output file each time has the potential to clutter up our workspace. We also
@@ -349,9 +353,11 @@ When our output was scrolling by, we might have wished we could slow it down and
 look at it, like we can with `less`. Well it turns out that we can! We can redirect our output
 from our `grep` call through the `less` command.
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | less
-```
+!!! terminal "code"
+
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | less
+    ```
 
 We can now see the output from our `grep` call within the `less` interface. We can use the up and down arrows
 to scroll through the output and use `q` to exit `less`.
@@ -360,9 +366,11 @@ If we don't want to create a file before counting lines of output from our `grep
 the output of the grep search to the command `wc -l`. This can be helpful for investigating your output if you are not sure
 you would like to save it to a file.
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | wc -l
-```
+!!! terminal "Code"
+
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq | wc -l
+    ```
 
 Because we asked `grep` for all four lines of each FASTQ record, we need to divide the output by
 four to get the number of sequences that match our search pattern. Since 802 / 4 = 200.5 and we
@@ -370,23 +378,25 @@ are expecting an integer number of records, there is something added or missing 
 If we explore `bad_reads.txt` using `less`, we might be able to notice what is causing the uneven
 number of lines. Luckily, this issue happens by the end of the file so we can also spot it with `tail`.
 
-```bash
-$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
-$ tail bad_reads.txt
-```
+!!! terminal "code"
 
-```output
-@SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
-ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
-+SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
-#!!!!!!!!!##########!!!!!!!!!!##!#!
---
---
-@SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
-CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
-+SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-```
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
+    $ tail bad_reads.txt
+    ```
+
+    ```output
+    @SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+    ANNNNNNNNNTTCAGCGACTNNNNNNNNNNGTNGN
+    +SRR098026.133 HWUSI-EAS1599_1:2:1:0:1978 length=35
+    #!!!!!!!!!##########!!!!!!!!!!##!#!
+    --
+    --
+    @SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+    CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+    +SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    ```
 
 The fifth and six lines in the output display "--" which is the default action for `grep` to separate groups of
 lines matching the pattern, and indicate groups of lines which did not match the pattern so are not displayed.
