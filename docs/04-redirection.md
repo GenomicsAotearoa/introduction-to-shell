@@ -448,7 +448,7 @@ efficiently.
 
 ## File manipulation and more practices with pipes
 
-To practice a bit more with the tools we've added to our tool kit so far and learn a few extra ones you can follow [this extra lesson](Extra_lesson.md) which uses the SRA metadata file.
+To practice a bit more with the tools we've added to our tool kit so far and learn a few extra ones you can follow [this extra lesson](./Supplementary/1-supplementary.md) which uses the SRA metadata file.
 
 
 

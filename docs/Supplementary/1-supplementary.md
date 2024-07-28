@@ -1,6 +1,4 @@
----
-title: File manipulation
----
+# 1. Supplementary - File manipulation
 
 ## File manipulation and more practice with pipes
 
@@ -8,7 +6,7 @@ Let's use the tools we've added to our tool kit so far, along with a few new one
 
 ```bash
 $ cd
-$ cd shell_data/sra_metadata
+$ cd ~/shell_data/sra_metadata
 ```
 
 This file contains a lot of information about the samples that we submitted for sequencing. We
@@ -103,9 +101,6 @@ $ cut -f3 SraRunTable.txt | grep SINGLE | wc -l
 35
 ```
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 #### How many of each class of library layout are there?
 
@@ -155,42 +150,38 @@ $ cut -f3 SraRunTable.txt | grep -v LibraryLayout_s | sort | uniq -c
 35 SINGLE
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
 
-## Exercise
+!!! dumbbell "Exercise"
 
-1. How many different sample load dates are there?
-2. How many samples were loaded on each date?
+    1. How many different sample load dates are there?
+    2. How many samples were loaded on each date?
 
-:::::::::::::::  solution
 
-## Solution
 
-1. There are two different sample load dates.
-  
-  ```bash
-  cut -f5 SraRunTable.txt | grep -v LoadDate_s | sort | uniq
-  ```
-  
-  ```output
-  25-Jul-12
-  29-May-14
-  ```
+    ??? success "Solution"
 
-2. Six samples were loaded on one date and 31 were loaded on the other.
-  
-  ```bash
-  cut -f5 SraRunTable.txt | grep -v LoadDate_s | sort | uniq -c
-  ```
-  
-  ```output
-   6 25-Jul-12
-  31 29-May-14
-  ```
+        1. There are two different sample load dates.
 
-:::::::::::::::::::::::::
+          ```bash
+          cut -f5 SraRunTable.txt | grep -v LoadDate_s | sort | uniq
+          ```
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+          ```output
+          25-Jul-12
+          29-May-14
+          ```
+
+        2. Six samples were loaded on one date and 31 were loaded on the other.
+
+          ```bash
+          cut -f5 SraRunTable.txt | grep -v LoadDate_s | sort | uniq -c
+          ```
+
+          ```output
+           6 25-Jul-12
+          31 29-May-14
+          ```
+
 
 #### Can we sort the file by library layout and save that sorted information to a new file?
 
@@ -227,14 +218,13 @@ samples to a new file.
 $ grep PAIRED SraRunTable.txt > SraRunTable_only_paired_end.txt
 ```
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+
 
 ## Exercise
 
 Sort samples by load date and export each of those sets to a new file (one new file per
 unique load date).
 
-:::::::::::::::  solution
 
 ## Solution
 
@@ -243,9 +233,6 @@ $ grep 25-Jul-12 SraRunTable.txt > SraRunTable_25-Jul-12.txt
 $ grep 29-May-14 SraRunTable.txt > SraRunTable_29-May-14.txt
 ```
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Making code more customizeable using command line arguments
 
