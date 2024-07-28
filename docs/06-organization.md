@@ -210,53 +210,55 @@ Here are some useful keyboard shortcuts for moving around within a text document
 
 
 
-Add a date line and comment to the line where you have created the directory. Recall that any
-text on a line after a `#` is ignored by bash when evaluating the text as code. For example:
 
-```bash
-# 2017_10_27   
-# Created sample directories for the Data Carpentry workshop  
-```
 
-Next, remove any lines of the history that are not relevant by navigating to those lines and using your
-delete key. Save your file and close `nano`.
+!!! scroll "Add a date line and comment to the line where you have created the directory. Recall that any text on a line after a `#` is ignored by bash when evaluating the text as code. For example:"
 
-Your file should look something like this:
+    ```bash
+    # 2017_10_27   
+    # Created sample directories for the Data Carpentry workshop  
+    ```
 
-```output
-# 2017_10_27
-# Created sample directories for the Data Carpentry workshop
+    - Next, remove any lines of the history that are not relevant by navigating to those lines and using your
+    - delete key. Save your file and close `nano`.
 
-mkdirintroshell 
-mkdir introshell/docs
-mkdir introshell/data
-mkdir introshell/results
-```
+    Your file should look something like this:
+
+    ```output
+    # 2017_10_27
+    # Created sample directories for the Data Carpentry workshop
+
+    mkdirintroshell 
+    mkdir introshell/docs
+    mkdir introshell/data
+    mkdir introshell/results
+    ```
 
 If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
 your `introshell` directory and all of its subdirectories. Look at your directory
-contents to verify the directory is gone.
+cont
 
-```bash
-$ rm -rintroshell 
-$ ls
-```
+!!! terminal "code"
+    
+    ```bash
+    $ rm -rintroshell 
+    $ ls
+    ```
 
-```output
-shell_data	introshell_log_2017_10_27.sh
-```
+    ```output
+    shell_data	introshell_log_2017_10_27.sh
+    ```
 
-Then run your workshop log file as a bash script. You should see the `introshell`
-directory and all of its subdirectories reappear.
+!!! terminal -2 "Then run your workshop log file as a bash script. You should see the `introshell` directory and all of its subdirectories reappear."
 
-```bash
-$ bash introshell_log_2017_10_27.sh
-$ ls
-```
+    ```bash
+    $ bash introshell_log_2017_10_27.sh
+    $ ls
+    ```
 
-```output
-shell_data	introshell introshell_log_2017_10_27.sh
-```
+    ```output
+    shell_data	introshell introshell_log_2017_10_27.sh
+    ```
 
 It's important that we keep our workshop log file outside of our `introshell` directory
 if we want to use it to recreate our work. It's also important for us to keep it up to
@@ -275,11 +277,11 @@ bioinformatics journey!
 
 [A Quick Guide to Organizing Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
+!!! graduation-cap "keypoints"
 
-- Spend the time to organize your file system when you start a new project. Your future self will thank you!
-- Always save a write-protected copy of your raw data.
+    - Spend the time to organize your file system when you start a new project. Your future self will thank you!
+    - Always save a write-protected copy of your raw data.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
