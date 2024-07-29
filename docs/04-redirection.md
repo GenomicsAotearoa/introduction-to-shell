@@ -171,14 +171,14 @@ in our FASTQ files that contain
     ```
 
 
-## File extensions
+!!! circle-info "File extensions"
 
-You might be confused about why we're naming our output file with a `.txt` extension. After all,
-it will be holding FASTQ formatted data that we're extracting from our FASTQ files. Won't it
-also be a FASTQ file? The answer is, yes - it will be a FASTQ file and it would make sense to
-name it with a `.fastq` extension. However, using a `.fastq` extension will lead us to problems
-when we move to using wildcards later in this episode. We'll point out where this becomes
-important. For now, it's good that you're thinking about file extensions!
+    You might be confused about why we're naming our output file with a `.txt` extension. After all,
+    it will be holding FASTQ formatted data that we're extracting from our FASTQ files. Won't it
+    also be a FASTQ file? The answer is, yes - it will be a FASTQ file and it would make sense to
+    name it with a `.fastq` extension. However, using a `.fastq` extension will lead us to problems
+    when we move to using wildcards later in this episode. We'll point out where this becomes
+    important. For now, it's good that you're thinking about file extensions!
 
 
 
@@ -312,26 +312,26 @@ The output of our second call to `wc` shows that we have not overwritten our ori
     ```
 
 
-## File extensions - part 2
+!!! circle-info "File extensions - part 2"
 
-This is where we would have trouble if we were naming our output file with a `.fastq` extension.
-If we already had a file called `bad_reads.fastq` (from our previous `grep` practice)
-and then ran the command above using a `.fastq` extension instead of a `.txt` extension, `grep`
-would give us a warning.
+    This is where we would have trouble if we were naming our output file with a `.fastq` extension.
+    If we already had a file called `bad_reads.fastq` (from our previous `grep` practice)
+    and then ran the command above using a `.fastq` extension instead of a `.txt` extension, `grep`
+    would give us a warning.
 
-!!! terminal "Code"
+    !!! terminal "Code"
 
-    ```bash
-    grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
-    ```
+        ```bash
+        grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.fastq
+        ```
 
-    ```output
-    grep: input file ‘bad_reads.fastq' is also the output
-    ```
+        ```output
+        grep: input file ‘bad_reads.fastq' is also the output
+        ```
 
-`grep` is letting you know that the output file `bad_reads.fastq` is also included in your
-`grep` call because it matches the `*.fastq` pattern. Be careful with this as it can lead to
-some unintended results.
+    `grep` is letting you know that the output file `bad_reads.fastq` is also included in your
+    `grep` call because it matches the `*.fastq` pattern. Be careful with this as it can lead to
+    some unintended results.
 
 
 
@@ -429,10 +429,10 @@ not interpret the pattern as an extended option (starting with --).
 
 
 
-## Custom `grep` control
+!!! circle-info "Custom `grep` control"
 
-Use `man grep` to read more about other options to customize the output of `grep` including extended options,
-anchoring characters, and much more.
+    Use `man grep` to read more about other options to customize the output of `grep` including extended options,
+    anchoring characters, and much more.
 
 
 
@@ -446,10 +446,10 @@ them together, you can do some really powerful things very
 efficiently.
 
 
-## File manipulation and more practices with pipes
+!!! circle-info  :File manipulation and more practices with pipes"
 
-To practice a bit more with the tools we've added to our tool kit so far and learn a few extra ones you can follow [this extra lesson](./Supplementary/1-supplementary.md) which uses the SRA metadata file.
-
+    To practice a bit more with the tools we've added to our tool kit so far and learn a few extra ones you can follow [this extra lesson](./Supplementary/1-supplementary.md) which uses the SRA metadata file.
+    
 
 
 ## Writing for loops
