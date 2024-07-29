@@ -34,7 +34,7 @@ then run `nano` to create a file called `README.txt`:
 
 You should see something like this:
 
-![](fig/nano201711.png){alt='nano201711.png'}
+![image](./fig/nano-editor.png)
 
 The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in `nano`. We will talk more about how to interpret this information soon.
 
