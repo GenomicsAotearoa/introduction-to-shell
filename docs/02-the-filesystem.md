@@ -240,9 +240,11 @@ directory in `home` which is a directory in `/`. More on `root` and
 
 You can also navigate to the `.hidden` directory using:
 
-```bash
-$ cd obss_2023/commandline/shell_data/.hidden
-```
+!!! terminal "code"
+
+    ```bash
+    $ cd ~/shell_data/.hidden
+    ```
 
 These two commands have the same effect, they both take us to the `.hidden` directory.
 The first uses the absolute path, giving the full address from the home directory. The
