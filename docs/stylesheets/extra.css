@@ -1061,15 +1061,16 @@
 }
 .md-typeset .admonition.cloud-down,
 .md-typeset details.cloud-down {
-  border-color: rgb(255,255,0);
+  border-color: rgb(226, 226, 220);
 }
 .md-typeset .cloud-down > .admonition-title,
 .md-typeset .cloud-down > summary {
-  background-color: rgba(255,255,0, 0.2);
+  color:rgb(225, 225, 236);
+  background-color: rgba(15, 15, 2, 0.884);
 }
 .md-typeset .cloud-down > .admonition-title::before,
 .md-typeset .cloud-down > summary::before {
-  background-color: rgb(25,25,112);
+  background-color: rgba(235, 235, 245, 0.979);
   -webkit-mask-image: var(--md-admonition-icon--cloud-down);
           mask-image: var(--md-admonition-icon--cloud-down);
 }
