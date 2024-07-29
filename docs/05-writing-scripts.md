@@ -38,28 +38,28 @@ The text at the bottom of the screen shows the keyboard shortcuts for performing
 
 
 
-## Which Editor?
+!!! circle-info "Which Editor?"
 
-When we say, "`nano` is a text editor," we really do mean "text": `nano` can
-only work with plain character data, not tables, images, or any other
-human-friendly media. We use `nano` in examples because it is one of the
-least complex text editors. However, because of this trait, `nano` may
-not be powerful enough or flexible enough for the work you need to do
-after this workshop. On Unix systems (such as Linux and Mac OS X),
-many programmers use [Emacs](https://www.gnu.org/software/emacs/) or
-[Vim](https://www.vim.org/) (both of which require more time to learn),
-or a graphical editor such as
-[Gedit](https://projects.gnome.org/gedit/). On Windows, you may wish to
-use [Notepad++](https://notepad-plus-plus.org/). Windows also has a built-in
-editor called `notepad` that can be run from the command line in the same
-way as `nano` for the purposes of this lesson.
+    When we say, "`nano` is a text editor," we really do mean "text": `nano` can
+    only work with plain character data, not tables, images, or any other
+    human-friendly media. We use `nano` in examples because it is one of the
+    least complex text editors. However, because of this trait, `nano` may
+    not be powerful enough or flexible enough for the work you need to do
+    after this workshop. On Unix systems (such as Linux and Mac OS X),
+    many programmers use [Emacs](https://www.gnu.org/software/emacs/) or
+    [Vim](https://www.vim.org/) (both of which require more time to learn),
+    or a graphical editor such as
+    [Gedit](https://projects.gnome.org/gedit/). On Windows, you may wish to
+    use [Notepad++](https://notepad-plus-plus.org/). Windows also has a built-in
+    editor called `notepad` that can be run from the command line in the same
+    way as `nano` for the purposes of this lesson.
 
-No matter what editor you use, you will need to know the default location where it searches
-for files and where files are saved. If you start an editor from the shell, it will (probably)
-use your current working directory as its default location. If you use
-your computer's start menu, the editor may want to save files in your desktop or
-documents directory instead. You can change this by navigating to
-another directory the first time you "Save As..."
+    No matter what editor you use, you will need to know the default location where it searches
+    for files and where files are saved. If you start an editor from the shell, it will (probably)
+    use your current working directory as its default location. If you use
+    your computer's start menu, the editor may want to save files in your desktop or
+    documents directory instead. You can change this by navigating to
+    another directory the first time you "Save As..."
 
 
 
@@ -74,23 +74,23 @@ return to the shell.
 
 
 
-## Control, Ctrl, or ^ Key
+!!! circle-info "Control, Ctrl, or ^ Key"
 
-The Control key is also called the "Ctrl" key. There are various ways
-in which using the Control key may be described. For example, you may
-see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down,
-press the <kbd>X</kbd> key, described as any of:
+    The Control key is also called the "Ctrl" key. There are various ways
+    in which using the Control key may be described. For example, you may
+    see an instruction to press the <kbd>Ctrl</kbd> key and, while holding it down,
+    press the <kbd>X</kbd> key, described as any of:
 
-- `Control-X`
-- `Control+X`
-- `Ctrl-X`
-- `Ctrl+X`
-- `^X`
-- `C-x`
+    - `Control-X`
+    - `Control+X`
+    - `Ctrl-X`
+    - `Ctrl+X`
+    - `^X`
+    - `C-x`
 
-In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
-This means that you can use <kbd>Ctrl</kbd>\-<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>\-<kbd>O</kbd> to save your
-file.
+    In `nano`, along the bottom of the screen you'll see `^G Get Help ^O WriteOut`.
+    This means that you can use <kbd>Ctrl</kbd>\-<kbd>G</kbd> to get help and <kbd>Ctrl</kbd>\-<kbd>O</kbd> to save your
+    file.
 
 
 
@@ -101,10 +101,10 @@ Now you've written a file. You can take a look at it with `less` or `cat`, or op
 
     Open `README.txt` and add the date to the top of the file and save the file.
 
-??? success "Solution"
+    ??? success "Solution"
 
-    Use `nano README.txt` to open the file.  
-    Add today's date and then use <kbd>Ctrl</kbd>\-<kbd>X</kbd> followed by `y` and <kbd>Enter</kbd> to save.
+        Use `nano README.txt` to open the file.  
+        Add today's date and then use <kbd>Ctrl</kbd>\-<kbd>X</kbd> followed by `y` and <kbd>Enter</kbd> to save.
 
 ## Writing scripts
 
@@ -130,10 +130,10 @@ Bad reads have a lot of N's, so we're going to look for `NNNNNNNNNN` with `grep`
 
 
 
-## Custom `grep` control
+!!! circle-info "Custom `grep` control"
 
-We introduced the `-v` option in [the previous episode](04-redirection.md), now we
-are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`.
+    We introduced the `-v` option in [the previous episode](04-redirection.md), now we
+    are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`.
 
 
 
