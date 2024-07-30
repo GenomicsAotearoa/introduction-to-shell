@@ -182,6 +182,8 @@ in our FASTQ files that contain
     $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq > bad_reads.txt
     ```
 
+    -  You will notice the `NNNN..` characters aren't highlighted in red anymore. Perhaps `grep` might have a flag to retain the colour for searched pattern ?
+
 
 !!! circle-info "File extensions"
 
@@ -209,7 +211,7 @@ make sure your file matches your instructor's output.
     ```
 
     ```output
-      802    1338   24012 bad_reads.txt
+    537  1073 23217  bad_reads.txt
     ```
 
     This will tell us the number of lines, words and characters in the file. If we
@@ -220,7 +222,7 @@ make sure your file matches your instructor's output.
     ```
     
     ```output
-    802 bad_reads.txt
+    537 bad_reads.txt
     ```
 
 !!! dumbbell "Exercise"
@@ -239,7 +241,7 @@ make sure your file matches your instructor's output.
         996
         ```
 
-Now you can divide this number by four to get the number of sequences in your fastq file.
+    Now you can divide this number by four to get the number of sequences in your fastq file.
 
 
 !!! dumbbell "Exercise"
