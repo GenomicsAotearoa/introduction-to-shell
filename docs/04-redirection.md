@@ -219,13 +219,13 @@ make sure your file matches your instructor's output.
 
     ??? success "Solution"
     
-    ```bash
-    $ wc -l SRR098026.fastq
-    ```
+        ```bash
+        $ wc -l SRR098026.fastq
+        ```
 
-    ```output
-    996
-    ```
+        ```output
+        996
+        ```
 
 Now you can divide this number by four to get the number of sequences in your fastq file.
 
@@ -236,14 +236,14 @@ Now you can divide this number by four to get the number of sequences in your fa
 
     ??? success "Solution"
     
-    ```bash
-    $ grep NNN SRR098026.fastq > bad_reads.txt
-    $ wc -l bad_reads.txt
-    ```
-
-    ```output
-    249
-    ```
+        ```bash
+        $ grep NNN SRR098026.fastq > bad_reads.txt
+        $ wc -l bad_reads.txt
+        ```
+    
+        ```output
+        249
+        ```
 
 
 We might want to search multiple FASTQ files for sequences that match our search pattern.
