@@ -53,10 +53,6 @@ you'll need to download a separate program to access the shell.
 
 To save time, we are going to be working on a remote server where all the necessary data and software available.
 When we say a 'remote server', we are talking about a computer that is not the one you are working on right now.
-You will access the Carpentries remote server where everything is prepared for the lesson.
-We will learn the basics of the shell by manipulating some data files. Some of these files are very large
-, and would take time to download to your computer.
-
 
 
 Type the word `clear` into the terminal and press the `Enter` key.
@@ -201,21 +197,21 @@ which tells `ls` to add a trailing `/` to the names of directories:
     in the directory. What is one piece of additional information this long format
     gives you that you don't see with the bare `ls` command?
 
-    !!! check-to-slot "solution"
+    ??? check-to-slot "solution"
 
-    ```bash
-    $ ls -l
-    ```
+        ```bash
+        $ ls -l
+        ```
 
-    ```output
-    total 8
-    drwxr-x--- 2 training training 4096 Jul 30  2015 sra_metadata
-    drwxr-xr-x 2 training training 4096 Nov 15  2017 untrimmed_fastq
-    ```
+        ```output
+        total 8
+        drwxr-x--- 2 training training 4096 Jul 30  2015 sra_metadata
+        drwxr-xr-x 2 training training 4096 Nov 15  2017 untrimmed_fastq
+        ```
 
-    The additional information given includes the name of the owner of the file,
-    when the file was last modified, and whether the current user has permission
-    to read and write to the file.
+        The additional information given includes the name of the owner of the file,
+        when the file was last modified, and whether the current user has permission
+        to read and write to the file.
 
 No one can possibly learn all of these arguments, that's what the manual page
 is for. You can (and should) refer to the manual page or other help files
