@@ -24,7 +24,7 @@
 
 | **Lesson**                                         | **Overview** | 
 |:---------------------------------------------------|:-------------|
-|1. [Introducing the shell](./01-introduction.md)| Describe key reasons for learning shell. Introcude `cd` `ls`  |
+|1. [Introducing the shell](./01-introduction.md)| Introduce `cd` `ls`  |
 |2. [Navigating files and directories](./02-the-filesystem.md)| moving around the filesystem. Introduce absolute vs relative path |
 |3. [Working with files and directories](./03-working-with-files.md)| View, search within, copy, move, and rename files. Create new directories |
 |4. [Redirection](./04-redirection.md)| Employ the grep command to search for information within files | 
