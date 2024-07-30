@@ -1,7 +1,3 @@
----
-comments: true
----
-
 # 1. Supplementary - File manipulation
 
 ## File manipulation and more practice with pipes
