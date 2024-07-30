@@ -240,7 +240,7 @@ Now you can divide this number by four to get the number of sequences in your fa
         $ grep NNN SRR098026.fastq > bad_reads.txt
         $ wc -l bad_reads.txt
         ```
-    
+
         ```output
         249
         ```
@@ -464,6 +464,54 @@ Each time the loop runs (called an iteration), an item in the list is assigned i
 the commands inside the loop are executed, before moving on to the next item in the list. Inside the loop, we call for
 the variable's value by putting `$` in front of it. The `$` tells the shell interpreter to treat the **variable**
 as a variable name and substitute its value in its place, rather than treat it as text or an external command. In shell programming, this is usually called "expanding" the variable.
+
+!!! circle-info "Basic Structure of a `for` loop"
+
+    The basic structure of a bash for loop looks like this:
+    ```bash
+    for variable in list
+    do
+        commands
+    done
+    ```
+
+    Let's break down each part:
+    
+    1. `for`: This keyword starts the loop.
+    2. `variable`: This is a temporary variable that takes on each value in the list, one at a time.
+    3. `in`: This keyword separates the variable from the list.
+    4. `list`: This is the set of items you want to loop through.
+    5. `do`: This keyword marks the beginning of the commands to be executed in each iteration.
+    6. `commands`: These are the actions you want to perform for each item in the list.
+    7. `done`: This keyword marks the end of the loop.
+
+    
+    Here's a simple example to help you understand:
+    ```bash
+    for fruit in apple banana orange
+    do
+        echo "I like $fruit"
+    done
+    ```
+    This loop will output:
+    ```
+    I like apple
+    I like banana
+    I like orange
+    ```
+
+    How It Works
+    1. The loop starts with "apple" as the value of fruit.
+    2. It executes the echo command with this value.
+    3. Then it moves to the next item, "banana", and repeats.
+    4. Finally, it does the same with "orange".
+    
+    After the last item, the loop ends.
+    
+    Remember, you can put any commands inside the loop, and they will be executed for each item in your list. This makes for loops a powerful tool for automating repetitive tasks in bash scripting.
+
+
+
 
 Sometimes, we want to expand a variable without any whitespace to its right.
 Suppose we have a variable named `foo` that contains the text `abc`, and would
