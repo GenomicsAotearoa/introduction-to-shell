@@ -608,13 +608,13 @@ Inside our for loop, we create a new name variable. We call the basename functio
 
     Why Parentheses `()` ?
 
-    - **Command Substitution:** The `$(...)` syntax is used for command substitution. It allows you to execute a command and use its output as a value in your script. In this case, $(basename ${filename} .fastq) executes the basename command and captures its output, which is then assigned to the variable name.
+    - **Command Substitution:** The `$(...)` syntax is used for command substitution. It allows you to execute a command and use its output as a value in your script. In this case, `$(basename ${filename} .fastq)` executes the `basename` command and captures its output, which is then assigned to the variable name.
     - **Clarity:** Using `$(...)` is preferred over backticks (`...`) for command substitution because it is more readable and can be nested more easily.
 
     Why Curly Braces `{}` ?
 
     - **Variable Expansion:** The `${filename}` syntax is used to clearly indicate that you are referencing the variable `filename`. This is particularly useful in cases where the variable name might be adjacent to other characters that could be interpreted as part of the variable name.
-    - **Disambiguation:** For example, if you had a variable named `filename_suffix`, writing `$filename_suffi`x could lead to confusion if you were trying to concatenate or manipulate it with other strings. Using `${filename}` makes it clear where the variable name ends.
+    - **Disambiguation:** For example, if you had a variable named `filename_suffix`, writing `$filename_suffix` could lead to ,especially if you are trying to concatenate or manipulate it with other strings. Using `${filename}` makes it clear where the variable name ends.
     - **Consistency:** While not always required, using curly braces for variable expansion is a common practice that enhances readability and reduces the risk of errors.
     
     * * * 
@@ -652,6 +652,10 @@ Inside our for loop, we create a new name variable. We call the basename functio
     > done
     ```
 
+    - `mv ${filename} ${name}_2019.txt:`This line renames the file. 
+        - `${filename}` is the original file name.
+        - `${name}_2019.txt` is the new file name, which consists of the original name (without .txt), followed by "_2019.txt".
+
 !!! dumbbell "Exercise"
 
     Remove `_2019` from all of the `.txt` files.
@@ -667,6 +671,7 @@ Inside our for loop, we create a new name variable. We call the basename functio
         > mv ${filename} ${name}.txt
         > done
         ```
+
 
 !!! graduation-cap "keypoints"
 
