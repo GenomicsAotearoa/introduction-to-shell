@@ -436,10 +436,9 @@ To fix this issue, we can redirect the output of grep to a second instance of `g
     #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     ```
 
-    The `-v` option in the second `grep` search stands for `--invert-match` meaning `grep` will now only display the
-    lines which do not match the searched pattern, in this case `'^--'`. The caret (`^`) is an **anchoring**
-    character matching the beginning of the line, and the pattern has to be enclose by single quotes so `grep` does
-    not interpret the pattern as an extended option (starting with --).
+    - `-v`: This option tells grep to invert the match, meaning it will return lines that do not match the specified pattern.
+    - `'^--'`: This is a regular expression where:
+    `^` asserts that the following characters (`--`) must be at the start of the line.
 
 
 
