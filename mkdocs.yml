@@ -11,6 +11,7 @@ repo_url: https://github.com/GenomicsAotearoa/introduction-to-shell
 
 theme:
   name: material
+  custom_dir: overrides
   logo: fig/nesi_ga.png
   favicon: fig/nesi_ga.png
    # 404 page
