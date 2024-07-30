@@ -277,9 +277,9 @@ return, you will search backwards and move up the file to previous examples of t
 
 
 
-   ??? success "Solution"
-   
-   `CAC`
+    ??? success "Solution"
+    
+        `CAC`
 
 Remember, the `man` program actually uses `less` internally and
 therefore uses the same commands, so you can search documentation
@@ -430,7 +430,7 @@ called `backup` where we'll store our backup data files.
     SRR098026-copy.fastq
     ```
 
-!!! termial-2 " The `mv` command is also how you rename files. Let's rename this file to make it clear that this is a backup:"
+!!! terminal-2 "The `mv` command is also how you rename files. Let's rename this file to make it clear that this is a backup:"
 
     ```bash
     $ cd backup
