@@ -161,10 +161,10 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
     ??? success "Solution"
 
-    ```
-    $ bash bad-reads-script.sh
-    Script finished!
-    ```
+        ```
+        $ bash bad-reads-script.sh
+        Script finished!
+        ```
 
 
 
