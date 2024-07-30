@@ -603,6 +603,15 @@ Inside our for loop, we create a new name variable. We call the basename functio
     - **Variable Expansion:** The `${filename}` syntax is used to clearly indicate that you are referencing the variable `filename`. This is particularly useful in cases where the variable name might be adjacent to other characters that could be interpreted as part of the variable name.
     - **Disambiguation:** For example, if you had a variable named `filename_suffix`, writing `$filename_suffi`x could lead to confusion if you were trying to concatenate or manipulate it with other strings. Using `${filename}` makes it clear where the variable name ends.
     - **Consistency:** While not always required, using curly braces for variable expansion is a common practice that enhances readability and reduces the risk of errors.
+    
+    * * * 
+
+    🙋 : In  `name=$(basename ${filename} .fastq)`, Can  I switch `{}` and `()` as in `name=${basename $(filename) .fastq}` ?
+
+    - **Order Matters:** You must use () for command substitution first, and within that, you can use {} for variable expansion as needed.
+    - **Contextual Importance:** Always use $(...) for command substitution and ${...} for variable expansion to ensure clarity and correctness in your scripts.
+
+    In summary, while the two types of brackets serve different purposes, their correct order and usage are crucial for the intended functionality of your shell scripts.
 
 !!! dumbbell "Exercise"
 
