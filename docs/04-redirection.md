@@ -606,10 +606,10 @@ Inside our for loop, we create a new name variable. We call the basename functio
     
     * * * 
 
-    🙋 : In  `name=$(basename ${filename} .fastq)`, Can  I switch `{}` and `()` as in `name=${basename $(filename) .fastq}` ?
+    🙋 : **In  `name=$(basename ${filename} .fastq)`, Can  I switch `{}` and `()` as in `name=${basename $(filename) .fastq}` ?** 🚫
 
-    - **Order Matters:** You must use () for command substitution first, and within that, you can use {} for variable expansion as needed.
-    - **Contextual Importance:** Always use $(...) for command substitution and ${...} for variable expansion to ensure clarity and correctness in your scripts.
+    - **Order Matters:** You must use `()` for command substitution first, and within that, you can use `{}` for variable expansion as needed.
+    - **Contextual Importance:** Always use `$(...)` for command substitution and `${...}` for variable expansion to ensure clarity and correctness in your scripts.
 
     In summary, while the two types of brackets serve different purposes, their correct order and usage are crucial for the intended functionality of your shell scripts.
 
