@@ -29,20 +29,20 @@ have two results files, which are stored in our `untrimmed_fastq` directory.
 
 !!! terminal-2 "Navigate to your `untrimmed_fastq` directory:"
 
-   ```bash
-   $ cd ~/shell_data/untrimmed_fastq
-   ```
+    ```bash
+    $ cd ~/shell_data/untrimmed_fastq
+    ```
 
-   We are interested in looking at the FASTQ files in this directory. We can list
-   all files with the .fastq extension using the command:
+    We are interested in looking at the FASTQ files in this directory. We can list
+    all files with the .fastq extension using the command:
 
-   ```bash
-   $ ls *.fastq
-   ```
+    ```bash
+    $ ls *.fastq
+    ```
 
-   ```output
-   SRR097977.fastq  SRR098026.fastq
-   ```
+    ```output
+    SRR097977.fastq  SRR098026.fastq
+    ```
 
 The `*` character is a special type of character called a wildcard, which can be used to represent any number of any type of character.
 Thus, `*.fastq` matches every file that ends with `.fastq`.
@@ -61,21 +61,20 @@ This command:
  
     lists only the file that ends with `977.fastq`.
 
-This command:
 
-```bash
-$ ls /usr/bin/*.sh
-```
+!!! terminal-2 "Lists every file in `/usr/bin` that ends with the characters `11`"
 
-```output
-/usr/bin/gettext.sh             /usr/bin/ibdiagm.sh   /usr/bin/mft_uninstall.sh       /usr/bin/unix-lpr.sh
-/usr/bin/gflags_completions.sh  /usr/bin/lesspipe.sh  /usr/bin/mlnx_interface_mgr.sh
-/usr/bin/gvmap.sh               /usr/bin/lprsetup.sh  /usr/bin/setup-nsssysinit.sh
-```
+    ```bash
+    $ ls /usr/bin/*11
+    ```
 
-Lists every file in `/usr/bin` that ends in the characters `.sh`.
-Note that the output displays **full** paths to files, since
-each result starts with `/`.
+    ```output
+    /usr/bin/cpp-11  /usr/bin/gcc-ar-11      /usr/bin/gcov-11       /usr/bin/lto-dump-11              /usr/bin/x86_64-linux-gnu-gcc-11     /usr/bin/x86_64-linux-gnu-gcc-ranlib-11  /usr/bin/x86_64-linux-gnu-gcov-tool-11
+    /usr/bin/g++-11  /usr/bin/gcc-nm-11      /usr/bin/gcov-dump-11  /usr/bin/x86_64-linux-gnu-cpp-11  /usr/bin/x86_64-linux-gnu-gcc-ar-11  /usr/bin/x86_64-linux-gnu-gcov-11        /usr/bin/x86_64-linux-gnu-lto-dump-11
+    /usr/bin/gcc-11  /usr/bin/gcc-ranlib-11  /usr/bin/gcov-tool-11  /usr/bin/x86_64-linux-gnu-g++-11  /usr/bin/x86_64-linux-gnu-gcc-nm-11  /usr/bin/x86_64-linux-gnu-gcov-dump-11
+    ```
+
+    Note that the output displays **full** paths to files, since each result starts with `/`.
 
  
 
