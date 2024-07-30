@@ -41,7 +41,7 @@ Unix is a generic operating system which takes full advantage of all available h
 
 Linux is not Unix, but it is a "Unix-like" operating system. Linux system is derived from Unix and it is a continuation of the basis of Unix design. Linux distributions are the most famous and healthiest example of the direct Unix derivatives. BSD (Berkley Software Distribution) is also an example of a Unix derivative.
 
-??? "Unix-like & a bit more on Linux"
+??? circle-info "Unix-like & a bit more on Linux"
 
     A Unix-like OS (also called as UN*X or *nix) is the one that works in a way similar to Unix systems, however, it is not necessary that they conform to Single UNIX Specification (SUS) or similar POSIX (Portable Operating System Interface) standard.
 
