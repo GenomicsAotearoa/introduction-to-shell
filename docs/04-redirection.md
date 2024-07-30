@@ -476,7 +476,7 @@ as a variable name and substitute its value in its place, rather than treat it a
     ```
 
     Let's break down each part:
-    
+
     1. `for`: This keyword starts the loop.
     2. `variable`: This is a temporary variable that takes on each value in the list, one at a time.
     3. `in`: This keyword separates the variable from the list.
@@ -500,7 +500,8 @@ as a variable name and substitute its value in its place, rather than treat it a
     I like orange
     ```
 
-    How It Works
+    How does it work: 
+
     1. The loop starts with "apple" as the value of fruit.
     2. It executes the echo command with this value.
     3. Then it moves to the next item, "banana", and repeats.
@@ -511,41 +512,7 @@ as a variable name and substitute its value in its place, rather than treat it a
     Remember, you can put any commands inside the loop, and they will be executed for each item in your list. This makes for loops a powerful tool for automating repetitive tasks in bash scripting.
 
 
-
-
-Sometimes, we want to expand a variable without any whitespace to its right.
-Suppose we have a variable named `foo` that contains the text `abc`, and would
-like to expand `foo` to create the text `abcEFG`.
-
-!!! terminal "Code"
-
-    ```bash
-    $ foo=abc
-    $ echo foo is $foo
-    foo is abc
-    $ echo foo is $fooEFG      # doesn't work
-    foo is
-    ```
-
-The interpreter is trying to expand a variable named `fooEFG`, which (probably)
-doesn't exist. We can avoid this problem by enclosing the variable name in
-braces (`{` and `}`, also called "curly brackets"). `bash` treats the `#`
-character as a comment character. Any text on a line after a `#` is ignored by
-bash when evaluating the text as code.
-
-!!! terminal "code"
-
-    ```bash
-    $ foo=abc
-    $ echo foo is $foo
-    foo is abc
-    $ echo foo is ${foo}EFG      # now it works!
-    foo is abcEFG
-    ```
-
-Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven't finished typing a complete command yet. A semicolon, `;`, can be used to separate two commands written on a single line.
-
-!!! terminal "code"
+!!! list-check "Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven't finished typing a complete command yet."
 
     ```bash
     $ cd ../untrimmed_fastq/
@@ -558,16 +525,14 @@ Let's write a for loop to show us the first two lines of the fastq files we down
     > done
     ```
 
-The for loop begins with the formula `for <variable> in <group to iterate over>`. In this case, the word `filename` is designated
-as the variable to be used over each iteration. In our case `SRR097977.fastq` and `SRR098026.fastq` will be substituted for `filename`
-because they fit the pattern of ending with .fastq in the directory we've specified. The next line of the for loop is `do`. The next line is
-the code that we want to execute. We are telling the loop to print the first two lines of each variable we iterate over. Finally, the
-word `done` ends the loop.
+    The for loop begins with the formula `for <variable> in <group to iterate over>`. In this case, the word `filename` is designated
+    as the variable to be used over each iteration. In our case `SRR097977.fastq` and `SRR098026.fastq` will be substituted for `filename`
+    because they fit the pattern of ending with .fastq in the directory we've specified. The next line of the for loop is `do`. The next line is
+    the code that we want to execute. We are telling the loop to print the first two lines of each variable we iterate over. Finally, the
+    word `done` ends the loop.
 
-After executing the loop, you should see the first two lines of both fastq files printed to the terminal. Let's create a loop that
-will save this information to a file.
-
-!!! terminal "code"
+    After executing the loop, you should see the first two lines of both fastq files printed to the terminal. Let's create a loop that
+    will save this information to a file.
 
     ```bash
     $ for filename in *.fastq
