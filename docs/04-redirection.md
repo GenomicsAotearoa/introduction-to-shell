@@ -96,6 +96,18 @@ matching line, so we add `-B1 -A2` to our grep command:
     +SRR098026.177 HWUSI-EAS1599_1:2:1:1:2025 length=35
     #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     ```
+    ??? tip "Can we avoid typiing `N` 10 times as it is a bit tedious 😵‍💫"
+
+        Sure can. Use 
+        ```bash
+        grep -E -B1 -A2 "N{10}" SRR098026.fastq
+        ```
+
+        - `-E`: This option tells grep to use Extended Regular Expressions (ERE). In ERE, certain characters like {}, (), ?, +, and | have special meanings without needing to be escaped. This is crucial for our pattern N{10} to work as intended.
+        - `"N{10}":` This is the pattern we're searching for:
+            - `N` represents the literal character 'N'.
+            - `{10}` is a quantifier that means "exactly 10 times".
+            - Together, `N{10}` matches exactly 10 consecutive 'N' characters.
 
 
 !!! dumbbell "Exercise"
