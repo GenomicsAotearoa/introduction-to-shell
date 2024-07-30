@@ -455,7 +455,7 @@ that we're only allowed to read (i.e. view) the file, not write to it (i.e. make
     ```
 
     ```output
-    -rw-r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+    -rw-r--r-- 1 training training 43332 Nov 15 23:02 SRR098026-backup.fastq
     ```
 
 The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the
@@ -481,7 +481,7 @@ Our goal for now is to change permissions on this file so that you no longer hav
     ```
 
     ```output
-    -r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:02 SRR098026-backup.fastq
+    -r--r--r-- 1 training training 43332 Nov 15 23:02 SRR098026-backup.fastq
     ```
 
 ### Removing
@@ -542,8 +542,8 @@ we just made.
            It's always a good idea to check your work with `ls -l backup`. You should see something like:
         
          ```output
-         -r--r--r-- 1 dcuser dcuser 47552 Nov 15 23:06 SRR097977-backup.fastq
-         -r--r--r-- 1 dcuser dcuser 43332 Nov 15 23:06 SRR098026-backup.fastq
+         -r--r--r-- 1 training training 47552 Nov 15 23:06 SRR097977-backup.fastq
+         -r--r--r-- 1 training training 43332 Nov 15 23:06 SRR098026-backup.fastq
          ```
 
 !!! graduation-cap "keypoints"
