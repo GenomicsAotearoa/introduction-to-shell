@@ -1,7 +1,7 @@
 # Introduction to shell for bioinformatics
 
 ## Workshop timings
-**Start time: 10am**  
+**Start time: 10:00am**  
 **Finish time: 4:00pm**  
 
 ## Workshop Schedule 
