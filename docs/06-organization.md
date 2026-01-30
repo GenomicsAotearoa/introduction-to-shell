@@ -1,4 +1,4 @@
-# 6. Project Organization
+# 6. Project organisation
 
 
 !!! clipboard-list  "Lesson objectives"
@@ -9,15 +9,15 @@
 
 !!! clipboard-question "questions"
 
-    - How can I organize my file system for a new bioinformatics project?
+    - How can I organise my file system for a new bioinformatics project?
     - How can I document my work?
 
 
 
 ## Getting your project started
 
-Project organization is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
-excitement of getting a first look at new data. Of course, while it's best to get yourself organized before you even begin your analyses,
+Project organisation is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
+excitement of getting a first look at new data. Of course, while it's best to get yourself organised before you even begin your analyses,
 it's never too late to start, either.
 
 You should approach your sequencing project similarly to how you do a biological experiment and this ideally begins with experimental design. We're going to assume that you've already designed a beautiful
@@ -112,7 +112,7 @@ iteratively.
     introshell/results: 
     ```
 
-## Organizing your files
+## organising your files
 
 Before beginning any analysis, it's important to save a copy of your
 raw data. The raw data should never be changed. Regardless of how
@@ -147,7 +147,7 @@ analyses. Luckily, it's even easier to record the steps you've
 carried out computational than it is when working at the bench.
 
 The `history` command is a convenient way to document all the
-commands you have used while analyzing and manipulating your project
+commands you have used while analysing and manipulating your project
 files. Let's document the work we have done on our project so far.
 
 !!! terminal-2 "View the commands that you have used so far during this session using `history`:"
@@ -275,11 +275,11 @@ bioinformatics journey!
 
 ### References
 
-[A Quick Guide to Organizing Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+[A Quick Guide to organising Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 
 !!! graduation-cap "keypoints"
 
-    - Spend the time to organize your file system when you start a new project. Your future self will thank you!
+    - Spend the time to organise your file system when you start a new project. Your future self will thank you!
     - Always save a write-protected copy of your raw data.
 
 

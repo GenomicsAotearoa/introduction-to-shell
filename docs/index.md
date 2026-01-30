@@ -1,10 +1,8 @@
-<center>
 # Introduction to Shell
-</center>
 
-<center>
-![image](./fig/icon.png){width="350"}
-</center>
+
+![image](./fig/icon.png){: width="350px" .center}
+
 
 !!! circle-info ""
 
@@ -47,9 +45,9 @@
 
 !!! copyright "Attribution Notice"
 
-    * This workshop material is adapted  and inspired by [Data Carpentry - Shell Genomics](https://datacarpentry.org/shell-genomics/)
+    * This workshop material is adapted  and inspired by The Carpentries [Data Carpentry - Shell Genomics](https://datacarpentry.org/shell-genomics/)
  
 
 !!! key "License" 
 
-    Genomics Aotearoa / New Zealand eScience Infrastructure "Intermediate Shell for Bioinformatics" is licensed under the **GNU General Public License v3.0, 29 June 2007** . ([Follow this link for more information](https://github.com/GenomicsAotearoa/shell-for-bioinformatics/blob/main/LICENSE))
+    Genomics Aotearoa / REANNZ "Introduction to Shell for Bioinformatics" is licensed under the **GNU General Public License v3.0, 29 June 2007** . ([Follow this link for more information](https://github.com/GenomicsAotearoa/introduction-to-shell/blob/main/LICENSE))

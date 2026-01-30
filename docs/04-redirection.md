@@ -168,7 +168,7 @@ way.
 We can do this with something called "redirection". The idea is that
 we are taking what would ordinarily be printed to the terminal screen and redirecting it to another location.
 In our case, we want to print this information to a file so that we can look at it later and
-use other commands to analyze this data.
+use other commands to analyse this data.
 
 The command for redirecting output to a file is `>`.
 
@@ -444,7 +444,7 @@ To fix this issue, we can redirect the output of grep to a second instance of `g
 
 !!! circle-info "Custom `grep` control"
 
-    Use `man grep` to read more about other options to customize the output of `grep` including extended options,
+    Use `man grep` to read more about other options to customise the output of `grep` including extended options,
     anchoring characters, and much more.
 
 
@@ -675,7 +675,7 @@ Inside our for loop, we create a new name variable. We call the basename functio
 
 !!! graduation-cap "keypoints"
 
-    - `grep` is a powerful search tool with many options for customization.
+    - `grep` is a powerful search tool with many options for customisation.
     - `>`, `>>`, and `|` are different ways of redirecting output.
     - `command > file` redirects a command's output to a file.
     - `command >> file` redirects a command's output to a file without overwriting the existing contents of the file.

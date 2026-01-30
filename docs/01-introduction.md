@@ -30,7 +30,7 @@ When we say a 'remote server', we are talking about a computer that is not the o
 
 The part of the operating system that manages files and directories
 is called the **file system**.
-It organizes our data into files,
+It organises our data into files,
 which hold information,
 and directories (also called "folders"),
 which hold files or other directories.
@@ -57,7 +57,7 @@ the directory that the computer assumes we want to run commands in,
 unless we explicitly specify something else.
 Here,
 the computer's response is `/home/<username>`,
-which is the top level directory within NeSI:
+which is the top level directory within REANNZ:
 
 !!! terminal "code"
     ```bash
@@ -68,7 +68,7 @@ which is the top level directory within NeSI:
     /home/<username>
     ```
 
-Let's look at how our file system is organized. We can see what files and subdirectories are in this directory by running `ls`,
+Let's look at how our file system is organised. We can see what files and subdirectories are in this directory by running `ls`,
 which stands for "listing":
 
 !!! terminal "code"
