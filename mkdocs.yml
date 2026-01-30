@@ -1,19 +1,30 @@
 site_name: Introduction to  Shell for Bioinformatics
-site_author: Genomics Aotearoa & NeSI
+site_author: Genomics Aotearoa & REANNZ
 site_dir: public
 site_url: "https://genomicsaotearoa.github.io/introduction-to-shell/"
 
 #Repository information
 
-repo_name:  GenomicsAotearoa/introduction-to-shel
+repo_name:  GenomicsAotearoa/introduction-to-shell
 repo_url: https://github.com/GenomicsAotearoa/introduction-to-shell
 
+nav:
+  - Home: index.md
+  - "Overview : UNIX, Linux & UNIX Shell": 0-unixl-linux-overview.md
+  - "1. First steps - Say Goodbye to the 🐭 (mostly)": 01-introduction.md
+  - "2. Navigating Files and Directories": 02-the-filesystem.md
+  - "3. Working with Files and Directories": 03-working-with-files.md
+  - "4. Redirection": 04-redirection.md
+  - "5. Writing Scripts and Working with Data": 05-writing-scripts.md
+  - "6. Project Organisation": 06-organization.md
+  - Supplementary:
+    - "1. Supplementary - File manipulation": Supplementary/1-supplementary.md
 
 theme:
   name: material
   custom_dir: overrides
-  logo: fig/nesi_ga.png
-  favicon: fig/nesi_ga.png
+  logo: fig/GA-logo-banner.png
+  favicon: fig/GA-image-black-favicon.png
    # 404 page
   static_templates:
     - 404.html
