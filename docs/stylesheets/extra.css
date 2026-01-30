@@ -1092,3 +1092,9 @@
   -webkit-mask-image: var(--md-admonition-icon--list-check);
           mask-image: var(--md-admonition-icon--list-check);
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
