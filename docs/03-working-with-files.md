@@ -376,7 +376,7 @@ the first four lines.
     ```
 
 All but one of the nucleotides in this read are unknown (`N`). This is a pretty bad read!
-Line 4 shows the quality for each nucleotide in the read. We'll cover the Fastq format more in depth tomorrow in when we look at [assessing read quality](https://otagobioinformaticsspringschool.github.io/wrangling-genomics-nesi/02-quality-control.html) in the DNA variant calling workshop.
+Line 4 shows the quality for each nucleotide in the read. You can read more about the Fastq format here on [Illumina reference material](https://knowledge.illumina.com/software/general/software-general-reference_material-list/000002211) or on [Wikipedia](https://en.wikipedia.org/wiki/FASTQ_format). 
 
 ## Creating, moving, copying, and removing
 
