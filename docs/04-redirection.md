@@ -204,7 +204,7 @@ We can check the number of lines in our new file using a command called `wc`.
 in a file. The FASTQ file may change over time, so given the potential for updates,
 make sure your file matches your instructor's output.
 
-!!! terminal-2 "As of Sept. 2020, wc gives the following output:"
+!!! terminal-2 "Code"
 
     ```bash
     $ wc bad_reads.txt
