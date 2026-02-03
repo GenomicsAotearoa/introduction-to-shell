@@ -57,8 +57,8 @@ In this lesson, we're going to be manually searching for strings of `N`s within 
 results to illustrate some principles of file searching. It can be really useful to do this
 type of searching to get a feel for the quality of your sequencing results, however, in your
 research you will most likely use a bioinformatics tool that has a built-in program for
-filtering out low-quality reads. You'll learn how to use one such tool in
-[a later lesson](https://datacarpentry.org/wrangling-genomics/02-quality-control).
+filtering out low-quality reads. You can learn how to use one such tool, called FastQC, in this
+[Data Carpentry lesson on Data Wrangling and Processing for Genomics](https://datacarpentry.org/wrangling-genomics/02-quality-control) or as part of our other workshops [RNA-seq Data Analysis](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#rna-seq-data-analysis) or [Microbial genome assembly with short reads](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#microbial-genome-assembly-with-short-reads).
 
 
 
