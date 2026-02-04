@@ -332,6 +332,59 @@ type the full path.
 
     The commands `cd`, and `cd ~` are very useful for quickly navigating back to your home directory. We will be using the `~` character in later lessons to specify our home directory.
 
+
+??? dumbbell "Additional Challenge 1: Get to home"
+
+    Starting from `/Users/nelle/data`, which of the following commands could Nelle use to navigate to their home directory, which is `/Users/nelle`?
+
+    1. `cd .`
+    2. `cd /`
+    3. `cd /home/nelle`
+    4. `cd ../..`
+    5. `cd ~`
+    6. `cd home`
+    7. `cd ~/data/..`
+    8. `cd`
+    9. `cd ..`
+    
+    ??? success "Solution"
+
+        1. No: `.` stands for the current directory.
+        2. No: `/` stands for the root directory.
+        3. No: Nelle’s home directory is `/Users/nelle`.
+        4. No: this command goes up two levels, i.e. ends in `/Users`.
+        5. Yes: `~` stands for the user’s home directory, in this case `/Users/nelle`.
+        6. No: this command would navigate into a directory home in the current directory if it exists.
+        7. Yes: unnecessarily complicated, but correct.
+        8. Yes: shortcut to go back to the user’s home directory.
+        9. Yes: goes up one level.
+
+??? dumbbell "Additional Challenge 2: `ls` reading comprehension"
+    
+    Using the filesystem diagram below, if `pwd` displays `/Users/backup`, and `-r` tells `ls` to display things in reverse order, what command(s) will result in the following output:
+
+    ```bash
+    pnas_sub/ pnas_final/ original/
+    ```
+
+    ![](fig/filesystem-challenge.svg){alt='File System for Challenge Questions'}
+
+    1. `ls pwd`
+    2. `ls -r -F`
+    3. `ls -r -F /Users/backup`
+
+    ??? success "Solution"
+        
+        1. No: `pwd` is not the name of a directory.
+        2. Yes: `ls` without directory argument lists files and directories in the current directory.
+        3. Yes: uses the absolute path explicitly.
+
+
+
+
+
+    
+
 !!! graduation-cap "Summary"
 
     - The `/`, `~`, and `..` characters represent important navigational shortcuts.
