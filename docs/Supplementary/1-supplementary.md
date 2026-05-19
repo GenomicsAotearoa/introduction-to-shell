@@ -83,24 +83,19 @@ $ cut -f3 SraRunTable.txt | grep PAIRED | wc -l
 We can see from this that we have only two paired-end libraries in the samples we submitted for
 sequencing.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+!!! dumbbell "Exercise"
 
-## Exercise
+    How many single-end libraries are in our samples?
 
-How many single-end libraries are in our samples?
+    ??? success "Solution"
 
-:::::::::::::::  solution
+          ```bash
+          cut -f3 SraRunTable.txt | grep SINGLE | wc -l
+          ```
 
-## Solution
-
-```bash
-$ cut -f3 SraRunTable.txt | grep SINGLE | wc -l
-```
-
-```output
-35
-```
-
+          ```output
+          35
+          ```
 
 #### How many of each class of library layout are there?
 
@@ -220,18 +215,17 @@ $ grep PAIRED SraRunTable.txt > SraRunTable_only_paired_end.txt
 
 
 
-## Exercise
+!!! dumbbell "Exercise"
 
-Sort samples by load date and export each of those sets to a new file (one new file per
-unique load date).
+    Sort samples by load date and export each of those sets to a new file (one new file per
+    unique load date).
 
+    ??? success "Solution"
 
-## Solution
-
-```bash
-$ grep 25-Jul-12 SraRunTable.txt > SraRunTable_25-Jul-12.txt
-$ grep 29-May-14 SraRunTable.txt > SraRunTable_29-May-14.txt
-```
+        ```bash
+        $ grep 25-Jul-12 SraRunTable.txt > SraRunTable_25-Jul-12.txt
+        $ grep 29-May-14 SraRunTable.txt > SraRunTable_29-May-14.txt
+        ```
 
 
 ## Making code more customizeable using command line arguments

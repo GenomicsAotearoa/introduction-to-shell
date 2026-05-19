@@ -273,6 +273,44 @@ analysis work. Don't worry if everything doesn't feel perfectly comfortable yet.
 going to have many more opportunities for practice as we move forward on our
 bioinformatics journey!
 
+### Where to next?
+
+If you'd like to keep practising with the example dataset we have been using today, you can download the data locally.
+
+On MacOS, open the "Terminal" application, `cd` into whichever dir you would like the data to be in (e.g., `cd ~/Desktop`) and type the code below.
+
+On Windows, you'll need to download a bash shell first. Follow the [instructions here](https://carpentries.github.io/workshop-template/install_instructions/#shell) on the software carpentry website for installing Git for Windows. Then, open the Git Bash application, `cd` into whichever dir you would like the data to be in (e.g., `cd ~/Desktop`) and type the code below.
+
+!!! terminal 
+    
+    ```bash
+    curl -O -L https://github.com/GenomicsAotearoa/introduction-to-shell/releases/download/2024-July/shell_data.zip
+    ```
+
+Or alternatively use `wget` (not usually installed by default):
+
+!!! terminal 
+    
+    ```bash
+    wget https://github.com/GenomicsAotearoa/introduction-to-shell/releases/download/2024-July/shell_data.zip
+    ```
+
+Once the zip folder is downloaded, type the following to unzip it:
+
+!!! terminal 
+    
+    ```bash
+    unzip shell_data.zip
+    ```
+
+Check out our [Supplementary](Supplementary/1-supplementary.md) page for additional exercises on file manipulation and using the pipe. 
+
+When you are more comfortable with shell, you may want to consider attending one of our Genomics Aotearoa workshops on [Intermediate Shell](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#intermediate-shell) or [Introduction to Bash Scripting and HPC Scheduler](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#bash-script-hpc-job).
+
+Lastly, the best way to get better with shell is to practise with your own data! 
+
+
+
 ### References
 
 [A Quick Guide to organising Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
