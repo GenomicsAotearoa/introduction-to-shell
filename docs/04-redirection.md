@@ -314,7 +314,21 @@ search sequence. So our file was overwritten and is now empty.
 
 The output of our second call to `wc` shows that we have not overwritten our original data.
 
-!!! terminal-2 "We can also do this with a single line of code by using a wildcard:"
+
+!!! terminal-2 "What if we now appended the `SRR098026.fastq` file onto `bad_reads.txt` again?"
+
+    ```bash
+    $ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq >> bad_reads.txt
+    $ wc -l bad_reads.txt
+    ```
+    
+    ```output
+    1074 bad_reads.txt
+    ```
+
+The line count has now doubled, as we have added the bad reads from `SRR098026.fastq` to the `bad_reads.txt` twice. 
+
+!!! terminal-2 "We can also `grep` results from both fastq files at once with a single line of code by using a wildcard:"
 
     ```bash
     $ grep -B1 -A2 NNNNNNNNNN *.fastq > bad_reads.txt
@@ -325,6 +339,7 @@ The output of our second call to `wc` shows that we have not overwritten our ori
     537 bad_reads.txt
     ```
 
+You don't need to use the append `>>` above for this to work.  
 
 !!! circle-info "File extensions - part 2"
 
