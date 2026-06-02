@@ -29,7 +29,7 @@ you're not already there.
 
     ```bash
     $ cd
-    $ cd ~/shell_data
+    $ cd shell_data
     $ cd untrimmed_fastq
     ```
 
@@ -63,7 +63,7 @@ to, and `ls` to check that the contents of the directory are correct.
     ```
 
     ```output
-    /home/<username>//shell_data
+    /home/shared/<username>/shell_data
     ```
 
     ```bash
@@ -76,13 +76,7 @@ to, and `ls` to check that the contents of the directory are correct.
 
 From this output, we can see that `..` did indeed take us back one level in our file system.
 
-!!! terminal-2 "You can chain these together like so:"
 
-    ```bash
-    $ ls ../../
-    ```
-
-prints the contents of `/home/<username>/shell_data`.
 
 ## Finding hidden directories
 
@@ -157,7 +151,7 @@ home directory if you are not already there.
     Then enter the command:
 
     ```bash
-    $ ls ~/shell_data
+    $ ls shell_data
     ```
 
     ```output
@@ -173,7 +167,7 @@ The `cd` command works in a similar way.
 
     ```bash
     $ cd
-    $ cd ~/shell_data/untrimmed_fastq
+    $ cd shell_data/untrimmed_fastq
     ```
 
     This will take you to the `untrimmed_fastq` directory without having to go through
@@ -188,7 +182,7 @@ The `cd` command works in a similar way.
 
         ```bash
         $ cd
-        $ ls ~/shell_data/untrimmed_fastq/
+        $ ls shell_data/untrimmed_fastq
         ```
 
         ```output
@@ -214,21 +208,21 @@ command.
     You will see:
 
     ```output
-    /home/<username>
+    /home/shared/<username>
     ```
 
 This is the full name of your home directory. This tells you that you
-are in a directory called `training`, which sits inside a directory called
-`home` which sits inside the very top directory in the hierarchy. The
+are in a directory called `training#` (each of you have your own unique numbered directory), which sits inside a directory called
+`shared` inside a directory called `home`, which sits inside the very top directory in the hierarchy. The
 very top of the hierarchy is a directory called `/` which is usually
-referred to as the _root directory_. So, to summarise: `training` is a
-directory in `home` which is a directory in `/`. More on `root` and
+referred to as the _root directory_. So, to summarise: `training#` is a
+directory in `shared` is a directory in `home` which is a directory in `/`. More on `root` and
 `home` in the next section.
 
 !!! terminal-2 "Now enter the following command:"
 
     ```bash
-    $ cd /home/<username>/shell_data/.hidden
+    $ cd /home/shared/<username>/shell_data/.hidden
     ```
 
     This jumps forward multiple levels to the `.hidden` directory.
@@ -243,7 +237,7 @@ You can also navigate to the `.hidden` directory using:
 !!! terminal "code"
 
     ```bash
-    $ cd ~/shell_data/.hidden
+    $ cd shell_data/.hidden
     ```
 
 These two commands have the same effect, they both take us to the `.hidden` directory.
@@ -265,6 +259,15 @@ since it involves less typing.
 Over time, it will become easier for you to keep a mental note of the
 structure of the directories that you are using and how to quickly
 navigate amongst them.
+
+!!! question "You can chain relative paths together with commands such as `cd` or `ls` like so:"
+
+    ```bash
+    $ ls ../../
+    ```
+    
+
+prints the contents of `/home/shared/<username>/`
 
 
 
@@ -301,28 +304,52 @@ your commands can permanently alter files that the operating
 system needs to function. In many cases, trying to run commands
 in `root` directories will require special permissions which are
 not discussed here, so it's best to avoid them and work within your
-home directory. Dealing with the `home` directory is very common.
+home directory. Dealing with the home directory is very common.
+
 The tilde character, `~`, is a shortcut for your home directory.
 In our case, the `root` directory is **two** levels above our
-`home` directory, so `cd` or `cd ~` will take you to
-`/home/<username>` and `cd /` will take you to `/`. Navigate to the
-`shell_data` directory:
+home directory, so `cd` or `cd ~` will take you to
+`/home/shared/<username>` and `cd /` will take you to `/`. 
+
+Navigate home using the tilde character:
+
 
 !!! terminal "code"
 
     ```bash
-    $ cd
-    $ cd ~/shell_data
+    $ cd ~
+    $ ls
+    ```
+    
+    ```output
+    shell_data ondemand
     ```
 
-    Then enter the command:
+It can be very useful to use the tilde to navigate to subdirectories from home, and is infact often good practise for writing scripts (more on bash scripts later!).
+
+For example, try: 
+
+!!! terminal "code"
+
+    ```bash
+    $ cd ~/shell_data
+    $ ls
+    ```
+    
+    ```output
+    sra_metadata untrimmed_fastq 
+    ```
+
+You can also combine tilde with other commands such as `ls`:
+
+!!! terminal "code"
 
     ```bash
     $ ls ~
     ```
-
+    
     ```output
-    shell_data
+    ondemand shell_data 
     ```
 
 This prints the contents of your home directory, without you needing to
