@@ -157,7 +157,7 @@ A few more useful shortcuts:
   is very useful.
 - <kbd>Ctrl</kbd>\+<kbd>L</kbd> or the `clear` command will clear your screen.
 
-!!! terminal -2 "You can also review your recent commands with the `history` command, by entering:"
+!!! terminal-2 "You can also review your recent commands with the `history` command, by entering:"
 
     ```bash
     $ history
@@ -174,7 +174,7 @@ directly by referring to the number of that command.
     261  ls *R1*fastq
     ```
 
-!!! terminal -2 "then you could repeat command #260 by entering:"
+!!! terminal-2 "then you could repeat command #260 by entering:"
 
     ```bash
     $ !260

@@ -65,12 +65,12 @@ We will start by creating a directory that we can use for the rest of the worksh
     You should see the output:
 
     ```output
-    /home/training 
+    /home/training# 
     ```
 !!! tip "If you aren't in your home directory, the easiest way to get there is to enter the command `cd`, which always returns you to home."
 
 
-!!! dumbbell Exercise
+!!! dumbbell "Exercise"
 
     Use the `mkdir` command to make the following directories:
 
@@ -80,14 +80,19 @@ We will start by creating a directory that we can use for the rest of the worksh
     - `introshell/results`
 
 
-??? success "Solution"
+    ??? success "Solution"
 
-    ```bash
-    $ mkdir introshell 
-    $ mkdir introshell/docs
-    $ mkdir introshell/data
-    $ mkdir introshell/results
-    ```
+        ```bash
+        $ mkdir introshell 
+        $ mkdir introshell/docs
+        $ mkdir introshell/data
+        $ mkdir introshell/results
+        ```
+        Or to do this in one line, type:
+
+        ```bash
+        $ mkdir -p introshell/{docs,data,results}
+        ```
 
 Use `ls -R` to verify that you have created these directories. The `-R` option for `ls` stands for recursive. This option causes
 `ls` to return the contents of each subdirectory within the directory
@@ -112,7 +117,7 @@ iteratively.
     introshell/results: 
     ```
 
-## organising your files
+## Organising your files
 
 Before beginning any analysis, it's important to save a copy of your
 raw data. The raw data should never be changed. Regardless of how
@@ -126,6 +131,8 @@ starting any analysis, you can make a copy of your raw data file and
 do your manipulations on that file, rather than the raw version. We
 learned in [a previous episode](https://datacarpentry.org/shell-genomics/03-working-with-files#file-permissions) how to prevent overwriting our raw data
 files by setting restrictive file permissions.
+
+We also recommend making two subdirectories in `data` – one for `raw` data and one for `processed` data. 
 
 You can store any results that are generated from your analysis in
 the `results` folder. This guarantees that you won't confuse results
@@ -145,6 +152,10 @@ written protocol. This detailed
 record-keeping process is just as important when doing computational
 analyses. Luckily, it's even easier to record the steps you've
 carried out computational than it is when working at the bench.
+
+The best thing we can do is run and keep all our important commands in **scripts**. This allows us to record, recreate, track and share with others exactly what we did to produce the results. 
+
+As an example, we can record our previous commands we ran just now to make the introshell directory and subdirectories in a **bash script**, complete with annotation. 
 
 The `history` command is a convenient way to document all the
 commands you have used while analysing and manipulating your project
@@ -169,12 +180,12 @@ several commands that focus on just what we need for this project.
 
     Using your knowledge of the shell, use the append redirect `>>` to create a file called
     `introshell_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
-    `introshell_log_2017_10_27.sh`)
+    `introshell_log_2026_08_27.sh`)
 
     ??? success "Solution"
 
         ```bash
-        $ history | tail -n 7 >> introshell_log_2017_10_27.sh
+        $ history | tail -n 7 >> introshell_log_2026_08_27.sh
         ```
 
     Note we used the last 7 lines as an example, the number of lines may vary.
@@ -184,87 +195,105 @@ You may have noticed that your history contains the `history` command itself. To
 from our log, let's use the `nano` text editor to fix the file:
 
 ```bash
-$ nano introshell_log_2017_10_27.sh
+nano introshell_log_2026_08_27.sh
 ```
 
-(Remember to replace the `2017_10_27` with your workshop date.)
+(Remember to replace the `2026_08_27` with your workshop date.)
 
 From the `nano` screen, you can use your cursor to navigate, type, and delete any redundant lines.
 
 
+??? tip "Bonus: Use the `date` command and command substitution to name your file"
+    In the [Intermediate Shell for Bioinformatics](https://genomicsaotearoa.github.io/shell-for-bioinformatics/3_streams_red_pipe/#command-substitution) workshop, we introduce using `date` to name files using command subsititution.  
 
-### Navigating in Nano
+    The `date` command will print today's date and time, and we can combine this with different flags to format the output as we'd like.  
 
-Although `nano` is useful, it can be frustrating to edit documents, as you
-can't use your mouse to navigate to the part of the document you would like to edit.
-Here are some useful keyboard shortcuts for moving around within a text document in
-`nano`. You can find more information by typing <kbd>Ctrl</kbd>\-<kbd>G</kbd> within `nano`.
-
-| key   | action                                       | 
-| ----- | -------------------------------------------- |
-| <kbd>Ctrl</kbd>\-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\-<kbd>→</kbd>  | to move forward one word                     | 
-| <kbd>Alt</kbd>\-<kbd>Space</kbd> OR <kbd>Esc</kbd>\-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\-<kbd>←</kbd>   | to move back one word                        | 
-| <kbd>Ctrl</kbd>\-<kbd>A</kbd>  | to move to the beginning of the current line | 
-| <kbd>Ctrl</kbd>\-<kbd>E</kbd>  | to move to the end of the current line       | 
-| <kbd>Ctrl</kbd>\-<kbd>W</kbd>  | to search                                    | 
-
-
-
-
-
-!!! scroll "Add a date line and comment to the line where you have created the directory. Recall that any text on a line after a `#` is ignored by bash when evaluating the text as code. For example:"
+    Instead of manually typing the date when you created the introshell_log_2026_08_27.sh file above, instead you could run:
 
     ```bash
-    # 2017_10_27   
+    history | tail -n 7 >> introshell_log_$(date +%Y_%m_%d).sh
+    ```
+
+### Annotate your scripts
+
+It is always a *very good idea* to annotate your scripts as much as possible. 
+
+One of the first things you may want to do is add a date line line at the top and a comment or description at the top about what the script does.Any text on a line after a `#` is ignored by bash when evaluating the text as code. 
+
+!!! scroll "Open your file with `nano`, then add the following text at the top of your script (modify as you see fit)"
+
+    ```bash
+    # 2026_08_27   
     # Created sample directories for the Data Carpentry workshop  
     ```
 
-    - Next, remove any lines of the history that are not relevant by navigating to those lines and using your
-    - delete key. Save your file and close `nano`.
+    - Next, remove any lines of the history that are not relevant by navigating to those lines and using your delete key. 
+    - Save your file and close `nano`.
 
     Your file should look something like this:
 
     ```output
-    # 2017_10_27
+    # 2026_08_27
     # Created sample directories for the Data Carpentry workshop
 
-    mkdirintroshell 
+    mkdir introshell 
     mkdir introshell/docs
     mkdir introshell/data
     mkdir introshell/results
     ```
 
+!!! circle-info "Navigating in Nano"
+
+    Although `nano` is useful, it can be frustrating to edit documents, as you
+    can't use your mouse to navigate to the part of the document you would like to edit.
+    Here are some useful keyboard shortcuts for moving around within a text document in
+    `nano`. You can find more information by typing <kbd>Ctrl</kbd>\-<kbd>G</kbd> within `nano`.
+
+    | key   | action                                       | 
+    | ----- | -------------------------------------------- |
+    | <kbd>Ctrl</kbd>\-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\-<kbd>→</kbd>  | to move forward one word                     | 
+    | <kbd>Alt</kbd>\-<kbd>Space</kbd> OR <kbd>Esc</kbd>\-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>\-<kbd>←</kbd>   | to move back one word                        | 
+    | <kbd>Ctrl</kbd>\-<kbd>A</kbd>  | to move to the beginning of the current line | 
+    | <kbd>Ctrl</kbd>\-<kbd>E</kbd>  | to move to the end of the current line       | 
+    | <kbd>Ctrl</kbd>\-<kbd>W</kbd>  | to search                                    | 
+
+
+
+
 If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
 your `introshell` directory and all of its subdirectories. Look at your directory
-cont
+count.
 
 !!! terminal "code"
     
     ```bash
-    $ rm -rintroshell 
+    $ rm -r introshell 
     $ ls
     ```
 
     ```output
-    shell_data	introshell_log_2017_10_27.sh
+    shell_data	introshell_log_2026_08_27.sh
     ```
 
-!!! terminal -2 "Then run your workshop log file as a bash script. You should see the `introshell` directory and all of its subdirectories reappear."
+Then run your workshop log file as a bash script. You should see the `introshell` directory and all of its subdirectories reappear.
+
+!!! terminal 
 
     ```bash
-    $ bash introshell_log_2017_10_27.sh
+    $ bash introshell_log_2026_08_27.sh
     $ ls
     ```
 
     ```output
-    shell_data	introshell introshell_log_2017_10_27.sh
+    shell_data	introshell introshell_log_2026_08_27.sh
     ```
 
 It's important that we keep our workshop log file outside of our `introshell` directory
 if we want to use it to recreate our work. It's also important for us to keep it up to
 date by regularly updating with the commands that we used to generate our results files.
 
-Congratulations! You've finished your introduction to using the shell for genomics
+
+***Congratulations!*** You've finished your introduction to using the shell for genomics
 projects. You now know how to navigate your file system, create, copy, move,
 and remove files and directories, and automate repetitive tasks using scripts and
 wildcards. With this solid foundation, you're ready to move on to apply all of these new
@@ -305,7 +334,12 @@ Once the zip folder is downloaded, type the following to unzip it:
 
 Check out our [Supplementary](Supplementary/1-supplementary.md) page for additional exercises on file manipulation and using the pipe. 
 
-When you are more comfortable with shell, you may want to consider attending one of our Genomics Aotearoa workshops on [Intermediate Shell](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#intermediate-shell) or [Introduction to Bash Scripting and HPC Scheduler](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#bash-script-hpc-job).
+When you are more comfortable with shell, you may want to consider attending one of our **Genomics Aotearoa workshops** on:  
+
+
+- [Introduction to Bash Scripting and HPC Scheduler](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#bash-script-hpc-job)  
+- [Intermediate Shell for Bioinformatics](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#intermediate-shell)   
+- [Reproducibility with Git and Quarto](https://genomicsaotearoa.github.io/BioinformaticsTrainingProgramme/portfolio.html#git-and-quarto)
 
 Lastly, the best way to get better with shell is to practise with your own data! 
 
@@ -315,10 +349,11 @@ Lastly, the best way to get better with shell is to practise with your own data!
 
 [A Quick Guide to organising Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 
-!!! graduation-cap "keypoints"
+!!! graduation-cap "Keypoints"
 
     - Spend the time to organise your file system when you start a new project. Your future self will thank you!
     - Always save a write-protected copy of your raw data.
+    - Create and annotate scripts 
 
 
 
