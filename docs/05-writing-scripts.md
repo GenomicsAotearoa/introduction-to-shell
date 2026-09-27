@@ -114,7 +114,7 @@ A really powerful thing about the command line is that you can write scripts. Sc
 
 One thing we will commonly want to do with sequencing results is pull out bad reads and write them to a file to see if we can figure out what's going on with them. We're going to look for reads with long sequences of N's like we did before, but now we're going to write a script, so we can run it each time we get new sequences, rather than type the code in by hand each time.
 
-We're going to create a new file to put this command in. We'll call it `bad-reads-script.sh`. The `sh` isn't required, but using that extension tells us that it's a shell script.
+We're going to create a new file to put this command in. We'll call it `bad-reads-script.sh`. The `sh` isn't required, but using that extension tells us that it's a shell script. Shell scripts can be opened by any text editor.  
 
 !!! terminal "code"
 
@@ -122,24 +122,35 @@ We're going to create a new file to put this command in. We'll call it `bad-read
     $ nano bad-reads-script.sh
     ```
 
-Bad reads have a lot of N's, so we're going to look for `NNNNNNNNNN` with `grep`. We want the whole FASTQ record, so we're also going to get the one line above the sequence and the two lines below. We also want to look in all the files that end with `.fastq`, so we're going to use the `*` wildcard.
+Every script should start with a line that tells shell which interpreter to use and where the software is installed. The `#!` at the start of this path is called the [shebang or hashbang](https://en.wikipedia.org/wiki/Shebang_(Unix)). You will almost always be using bash and bash will almost always be at the path `/bin/bash`, so most of the time you'll copy this line exactly. If you want to use a different shell or a different language (*e.g.,* python) you can specify this here instead.  
 
+!!! terminal "code"
+
+    ```bash
+    #!/bin/bash
+    ```
+
+Add the line above, then leave an empty line, then type in the code. Here we'll use some code we ran earlier.
+ 
 !!! terminal "code"
 
     ```bash
     grep -B1 -A2 -h NNNNNNNNNN *.fastq | grep -v '^--' > scripted_bad_reads.txt
     ```
 
-
+Bad reads have a lot of N's, so we're going to look for `NNNNNNNNNN` with `grep`. We want the whole FASTQ record, so we're also going to get the one line above the sequence and the two lines below. We also want to look in all the files that end with `.fastq`, so we're going to use the `*` wildcard.
 
 !!! circle-info "Custom `grep` control"
 
     We introduced the `-v` option in [the previous episode](04-redirection.md), now we
-    are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`.
+    are using `-h` to "Suppress the prefixing of file names on output" according to the documentation shown by `man grep`. You may have seen the prefixing earlier if you ran `grep -B1 -A2 NNNNNNNNNN *.fastq` as grep adds the sample name prefixing when the wildcard is expanded. 
 
 
 
-Type your `grep` command into the file and save it as before. Be careful that you did not add the `$` at the beginning of the line.
+Type your `grep` command into the script file and save it as before. It should look like this:
+
+
+![Image of bash script in nano](./fig/nano-bash.png)
 
 Now comes the neat part. We can run this script. Type:
 

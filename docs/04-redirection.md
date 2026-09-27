@@ -578,7 +578,64 @@ If you notice a mistake that is going to prevent your loop for executing correct
 Note that we are using `>>` to append the text to our `seq_info.txt` file. If we used `>`, the `seq_info.txt` file would be rewritten
 every time the loop iterates, so it would only have text from the last variable used. Instead, `>>` adds to the end of the file.
 
-## Using Basename in for loops
+
+!!! dumbbell "For loop Exercise 1"
+
+    Use a for loop to copy both of our fastq files and rename them both with `backup_` as the prefix. 
+
+
+    ??? success "Solution"
+
+        ```bash
+        for filename in *.fastq
+        do
+        cp ${filename} backup_${filename}
+        done
+        ```
+
+!!! dumbbell "For loop Exercise 2"
+
+    Use a for loop to echo back the name of each file, count how many reads are in each fastq line, and save the output of both commands in a new file called `read_counts.txt`. 
+
+    * The command to count how many reads are in each fastq is `grep -c "^@SRR"  filename` (this translates as count how many lines start with \@SRR) 
+
+    ??? tip "Hint"
+
+        You'll need to have two command lines - the `echo` line and the `grep` line. 
+
+        Your first command in the for loop should be: `echo ${filename} >> read_counts.txt` 
+
+        Don't forget you'll need to *append* the output file - otherwise it gets overwritten through each run of the loop!
+
+        Your second command line is the `grep` line, which you'll also want to *append* to `read_counts.txt` 
+
+
+    ??? success "Solution"
+
+        ```bash
+        for filename in *.fastq
+        do
+        echo ${filename} >> read_counts.txt
+        grep -c "^@SRR" ${filename} >> read_counts.txt  
+        done
+        ```
+
+        Now check your `read_counts.txt` with `cat`:
+        
+        ```bash
+        cat read_counts.txt
+        ```
+
+        ```output
+        SRR097977.fastq
+        249
+        SRR098026.fastq
+        249
+        ```
+
+
+
+## :rocket: Bonus: Using Basename in for loops
 
 Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the `.fastq` extension from the files that we've been working with.
 
@@ -594,17 +651,6 @@ Basename is a function in UNIX that is helpful for removing a uniform part of a 
     SRR097977
     ```
 
-If we try the same thing but use `.fasta` as the file extension instead, nothing happens. This is because basename only works when it **exactly** matches a string in the file.
-
-!!! terminal "Cdoe"
-
-    ```bash
-    $ basename SRR097977.fastq .fasta
-    ```
-
-    ```output
-    SRR097977.fastq
-    ```
 
 !!! quote ""
     Basename is really powerful when used in a for loop. It allows to access just the file prefix, which you can use to name things. Let's try this.
@@ -657,32 +703,34 @@ Inside our for loop, we create a new name variable. We call the basename functio
         ```
 
 
-!!! terminal-2 "One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them."
+One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them.
+
+!!! terminal-2 "code"
 
     ```bash
-    $ for filename in *.txt
-    > do
-    > name=$(basename ${filename} .txt)
-    > mv ${filename}  ${name}_2019.txt
-    > done
+    for filename in *.txt
+    do
+    name=$(basename ${filename} .txt)
+    mv ${filename} ${name}_2026.txt
+    done
     ```
 
-    - `mv ${filename} ${name}_2019.txt:`This line renames the file. 
-        - `${filename}` is the original file name.
-        - `${name}_2019.txt` is the new file name, which consists of the original name (without .txt), followed by "_2019.txt".
+- `mv ${filename} ${name}_2026.txt:`This line renames the file. 
+    - `${filename}` is the original file name.
+    - `${name}_2026.txt` is the new file name, which consists of the original name (without .txt), followed by "_2026.txt".
 
 !!! dumbbell "Exercise"
 
-    Remove `_2019` from all of the `.txt` files.
+    Remove `_2026` from all of the `.txt` files.
 
 
 
     ??? success "Solution"
 
         ```bash
-        $ for filename in *_2019.txt
+        $ for filename in *_2026.txt
         > do
-        > name=$(basename ${filename} _2019.txt)
+        > name=$(basename ${filename} _2026.txt)
         > mv ${filename} ${name}.txt
         > done
         ```
