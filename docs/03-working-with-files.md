@@ -354,7 +354,7 @@ include...
 
 | Line | Description                                                                                                  |
 | ---- | ------------------------------------------------------------------------------------------------------------ |
-| 1    | Always begins with '@' and then information about the read                                                   |
+| 1    | This is the header or sequence identifier line and it always begins with '@' and then information about the read                                                   |
 | 2    | The actual DNA sequence                                                                                      |
 | 3    | Always begins with a '+' and sometimes the same info in line 1                                               |
 | 4    | Has a string of characters which represent the quality scores; must have same number of characters as line 2 |
@@ -376,7 +376,12 @@ the first four lines.
     ```
 
 All but one of the nucleotides in this read are unknown (`N`). This is a pretty bad read!
-Line 4 shows the quality for each nucleotide in the read. You can read more about the Fastq format here on [Illumina reference material](https://knowledge.illumina.com/software/general/software-general-reference_material-list/000002211) or on [Wikipedia](https://en.wikipedia.org/wiki/FASTQ_format). 
+Line 4 shows the quality for each nucleotide in the read. You can read more about the Fastq format on [Wikipedia](https://en.wikipedia.org/wiki/FASTQ_format). 
+
+<!--- 
+here on [Illumina reference material](https://knowledge.illumina.com/software/general/software-general-reference_material-list/000002211) 
+link currently dead, Illumina may fix at some point
+-->
 
 ## Creating, moving, copying, and removing
 
