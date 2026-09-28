@@ -415,7 +415,9 @@ called `backup` where we'll store our backup data files.
 
 ### Creating Directories
 
-!!! terminal-2 "The `mkdir` command is used to make a directory. Enter `mkdir` followed by a space, then the directory name you want to create:"
+The `mkdir` command is used to make a directory. Enter `mkdir` followed by a space, then the directory name you want to create:
+
+!!! terminal "code"
 
     ```bash
     $ mkdir backup
@@ -423,7 +425,8 @@ called `backup` where we'll store our backup data files.
 
 ### Moving / Renaming
 
-!!! terminal-2 "We can now move our backup file to this directory. We can move files around using the command `mv`:"
+We can now move our backup file to this directory. We can move files around using the command `mv`:
+!!! terminal "code"
 
 
     ```bash
@@ -435,7 +438,9 @@ called `backup` where we'll store our backup data files.
     SRR098026-copy.fastq
     ```
 
-!!! terminal-2 "The `mv` command is also how you rename files. Let's rename this file to make it clear that this is a backup:"
+The `mv` command is also how you rename files. Let's rename this file to make it clear that this is a backup:
+
+!!! terminal "code"
 
     ```bash
     $ cd backup
@@ -447,51 +452,7 @@ called `backup` where we'll store our backup data files.
     SRR098026-backup.fastq
     ```
 
-### File Permissions
-
-We've now made a backup copy of our file, but just because we have two copies, it doesn't make us safe. We can still accidentally delete or
-overwrite both copies. To make sure we can't accidentally mess up this backup file, we're going to change the permissions on the file so
-that we're only allowed to read (i.e. view) the file, not write to it (i.e. make new changes).
-
-!!! terminal-2 "View the current permissions on a file using the `-l` (long) flag for the `ls` command:"
-
-    ```bash
-    $ ls -l
-    ```
-
-    ```output
-    -rw-r--r-- 1 training training 43332 Nov 15 23:02 SRR098026-backup.fastq
-    ```
-
-The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the
-permissions list. The first character in this list is related to file type, not permissions, so we'll ignore it for now. The next three
-characters relate to the permissions that the file owner has, the next three relate to the permissions for group members, and the final
-three characters specify what other users outside of your group can do with the file. We're going to concentrate on the three positions
-that deal with your permissions (as the file owner).
-
-![](fig/rwx_figure.svg){alt='Permissions breakdown'}
-
-Here the three positions that relate to the file owner are `rw-`. The `r` means that you have permission to read the file, the `w`
-indicates that you have permission to write to (i.e. make changes to) the file, and the third position is a `-`, indicating that you
-don't have permission to carry out the ability encoded by that space (this is the space where `x` or executable ability is stored, we'll
-talk more about this in [a later lesson](05-writing-scripts.md)).
-
-Our goal for now is to change permissions on this file so that you no longer have `w` or write permissions. We can do this using the `chmod` (change mode) command and subtracting (`-`) the write permission `-w`.
-
-!!! terminal "code"
-
-    ```bash
-    $ chmod -w SRR098026-backup.fastq
-    $ ls -l
-    ```
-
-    ```output
-    -r--r--r-- 1 training training 43332 Nov 15 23:02 SRR098026-backup.fastq
-    ```
-
-### Removing
-
-To prove to ourselves that you no longer have the ability to modify this file, try deleting it with the `rm` command:
+Let's say you don't want this backup file any more, you can delete it with:
 
 !!! terminal "code"
 
@@ -499,57 +460,22 @@ To prove to ourselves that you no longer have the ability to modify this file, t
     $ rm SRR098026-backup.fastq
     ```
 
-You'll be asked if you want to override your file permissions:
 
-```output
-rm: remove write-protected regular file ‘SRR098026-backup.fastq'?
-```
+And if you want to delete the whole directory, you'll need to first move back out of the directory, then run `rm` with the recursive flag:
 
-You should enter `n` for no. If you enter `n` (for no), the file will not be deleted. If you enter `y`, you will delete the file. This gives us an extra
-measure of security, as there is one more step between us and deleting our data files.
-
-**Important**: The `rm` command permanently removes the file. Be careful with this command. It doesn't
-just nicely put the files in the Trash. They're really gone.
-
-By default, `rm` will not delete directories. You can tell `rm` to
-delete a directory using the `-r` (recursive) option. Let's delete the backup directory
-we just made.
-
-!!! terminal-2 "Enter the following command:"
+!!! terminal "code"
 
     ```bash
     $ cd ..
     $ rm -r backup
     ```
 
-   This will delete not only the directory, but all files within the directory. If you have write-protected files in the directory, you will be asked whether you want to override your permission settings.
+This will delete not only the directory, but all files within the directory. If you have write-protected files in the directory, you will be asked whether you want to override your permission settings.
+
+!!! danger "Heads up!"
+    The remove command *permanently deletes* your file or directory. There is no undo. Use wisely. 
 
 
-
-!!! dumbbell "Exercise"
-
-    Starting in the `~/shell_data/untrimmed_fastq/` directory, do the following:
-    
-    1. Make sure that you have deleted your backup directory and all files it contains.
-    2. Create a backup of each of your FASTQ files using `cp`. (Note: You'll need to do this individually for each of the two FASTQ files. We haven't
-       learned yet how to do this
-       with a wildcard.)
-    3. Use a wildcard to move all of your backup files to a new backup directory.
-    4. Change the permissions on all of your backup files to be write-protected.
-    
-
-    ??? success "Solution"
-
-        1. `rm -r backup`
-        2. `cp SRR098026.fastq SRR098026-backup.fastq` and `cp SRR097977.fastq SRR097977-backup.fastq`
-        3. `mkdir backup` and `mv *-backup.fastq backup`
-        4. `chmod -w backup/*-backup.fastq`  
-           It's always a good idea to check your work with `ls -l backup`. You should see something like:
-        
-         ```output
-         -r--r--r-- 1 training training 47552 Nov 15 23:06 SRR097977-backup.fastq
-         -r--r--r-- 1 training training 43332 Nov 15 23:06 SRR098026-backup.fastq
-         ```
 
 !!! graduation-cap "keypoints"
 

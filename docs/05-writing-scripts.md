@@ -179,49 +179,7 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 
 
 
-## Making the script into a program
 
-We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell the computer that this script is a program by making the script file executable. We can do this by changing the file permissions. We talked about permissions in [an earlier episode](03-working-with-files.md).
-
-!!! terminal-2 "First, let's look at the current permissions."
-
-    ```bash
-    $ ls -l bad-reads-script.sh
-    ```
-
-    ```output
-    -rw-rw-r-- 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
-    ```
-
-We see that it says `-rw-r--r--`. This shows that the file can be read by any user and written to by the file owner (you). We want to change these permissions so that the file can be executed as a program. We use the command `chmod` like we did earlier when we removed write permissions. Here we are adding (`+`) executable permissions (`+x`).
-
-!!! terminal "code"
-
-    ```bash
-    $ chmod +x bad-reads-script.sh
-    ```
-
-!!! terminal-2 "Now let's look at the permissions again."
-
-    ```bash
-    $ ls -l bad-reads-script.sh
-    ```
-    
-    ```output
-    -rwxrwxr-x 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
-    ```
-
-Now we see that it says `-rwxr-xr-x`. The `x`'s that are there now tell us we can run it as a program. So, let's try it! We'll need to put `./` at the beginning so the computer knows to look here in this directory for the program.
-
-!!! terminal "code"
-
-    ```bash
-    $ ./bad-reads-script.sh
-    ```
-
-The script should run the same way as before, but now we've created our very own computer program!
-
-You will learn more about writing scripts in [a later lesson](https://datacarpentry.org/wrangling-genomics/05-automation).
 
 ## Moving and Downloading Data
 

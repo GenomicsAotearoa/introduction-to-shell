@@ -22,7 +22,7 @@
 
 | **Lesson**                                         | **Overview** | 
 |:---------------------------------------------------|:-------------|
-|Pre . [Unix, Linux and UNIX Shell](./0-unixl-linux-overview.md)|Quick overview on UNIX operating system and it's importance|
+|[Unix, Linux and UNIX Shell](./0-unixl-linux-overview.md)|Quick overview on UNIX operating system and it's importance|
 |1. [Introducing the shell](./01-introduction.md)| Introduce `cd` `ls`  |
 |2. [Navigating files and directories](./02-the-filesystem.md)| moving around the filesystem. Introduce absolute vs relative path |
 |3. [Working with files and directories](./03-working-with-files.md)| View, search within, copy, move, and rename files. Create new directories |
@@ -45,7 +45,7 @@
 
 !!! copyright "Attribution Notice"
 
-    * This workshop material is adapted  and inspired by The Carpentries [Data Carpentry - Shell Genomics](https://datacarpentry.org/shell-genomics/)
+    * This workshop material is adapted and inspired by The Carpentries [Data Carpentry - Shell Genomics](https://datacarpentry.org/shell-genomics/). It has been further developed by: Dinindu Senanayake, Chloé van der Burg and Genomics Aotearoa.   
  
 
 !!! key "License" 

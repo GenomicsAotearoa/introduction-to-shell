@@ -18,8 +18,10 @@ nav:
   - "5. Writing Scripts and Working with Data": 05-writing-scripts.md
   - "6. Project Organisation": 06-organization.md
   - Supplementary:
-    - "1. Supplementary - File manipulation": Supplementary/1-supplementary.md
-    - "2. Supplementary - Quick reference": Supplementary/2-supplementary.md
+    - "1. Supplementary - Quick reference ": Supplementary/1-supplementary.md
+    - "2. Supplementary - File permissions": Supplementary/2-supplementary.md
+    - "3. Supplementary - File manipulation": Supplementary/3-supplementary.md
+
 
 
 theme:
