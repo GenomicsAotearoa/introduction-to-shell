@@ -14,7 +14,7 @@ nav:
   - "1. First steps - Say Goodbye to the 🐭 (mostly)": 01-introduction.md
   - "2. Navigating Files and Directories": 02-the-filesystem.md
   - "3. Working with Files and Directories": 03-working-with-files.md
-  - "4. Redirection": 04-redirection.md
+  - "4. Redirection and for loops": 04-redirection.md
   - "5. Writing Scripts and Working with Data": 05-writing-scripts.md
   - "6. Project Organisation": 06-organization.md
   - Supplementary:

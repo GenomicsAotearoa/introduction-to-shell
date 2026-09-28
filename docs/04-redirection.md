@@ -1,4 +1,4 @@
-# 4. Redirection
+# 4. Redirection and for loops
 
 
 !!! clipboard-list "Lesson Objectives"
