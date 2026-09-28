@@ -539,11 +539,17 @@ as a variable name and substitute its value in its place, rather than treat it a
     
     Remember, you can put any commands inside the loop, and they will be executed for each item in your list. This makes for loops a powerful tool for automating repetitive tasks in bash scripting.
 
+    !!! info "What is echo?"
+        The echo command can be used to "echo back" text, which can be combined with commands or variables, such as we saw above.  It's very handy for testing loops and echoing back variable names or command outputs combined with a text descriptor. *E.g.,* try run `echo "Today's date is $(date)"` . This also uses something called command substitution, which you can read more about in the extra for experts section on basename down below.    
 
-!!! list-check "Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven't finished typing a complete command yet."
+
+
+Let's write a for loop to show us the first two lines of the fastq files we downloaded earlier. You will notice the shell prompt changes from `$` to `>` and back again as we were typing in our loop. The second prompt, `>`, is different to remind us that we haven't finished typing a complete command yet.
+
+!!! terminal "code"
 
     ```bash
-    $ cd ../untrimmed_fastq/
+    $ cd ~/shell_data/untrimmed_fastq/
     ```
 
     ```bash
@@ -553,14 +559,14 @@ as a variable name and substitute its value in its place, rather than treat it a
     > done
     ```
 
-    The for loop begins with the formula `for <variable> in <group to iterate over>`. In this case, the word `filename` is designated
-    as the variable to be used over each iteration. In our case `SRR097977.fastq` and `SRR098026.fastq` will be substituted for `filename`
-    because they fit the pattern of ending with .fastq in the directory we've specified. The next line of the for loop is `do`. The next line is
-    the code that we want to execute. We are telling the loop to print the first two lines of each variable we iterate over. Finally, the
-    word `done` ends the loop.
+The for loop begins with the formula `for <variable> in <list to iterate over>`. In this case, the word `filename` is designated
+as the variable to be used over each iteration. In our case `SRR097977.fastq` and `SRR098026.fastq` will be substituted for `filename`
+because they fit the pattern of ending with .fastq in the directory we've specified. The next line of the for loop is `do`. The next line is the code that we want to execute. We are telling the loop to print the first two lines of each variable we iterate over. Finally, the word `done` ends the loop.
 
-    After executing the loop, you should see the first two lines of both fastq files printed to the terminal. Let's create a loop that
-    will save this information to a file.
+After executing the loop, you should see the first two lines of both fastq files printed to the terminal. Let's create a loop that
+will save this information to a file.
+
+!!! terminal "code"
 
     ```bash
     $ for filename in *.fastq
@@ -569,15 +575,19 @@ as a variable name and substitute its value in its place, rather than treat it a
     > done
     ```
 
-When writing a loop, you will not be able to return to previous lines once you have pressed Enter. Remember that we can cancel the current command using
-
-- <kbd>Ctrl</kbd>\+<kbd>C</kbd>
-
-If you notice a mistake that is going to prevent your loop for executing correctly.
-
 Note that we are using `>>` to append the text to our `seq_info.txt` file. If we used `>`, the `seq_info.txt` file would be rewritten
 every time the loop iterates, so it would only have text from the last variable used. Instead, `>>` adds to the end of the file.
 
+!!! info "Stuck in a for loop?"
+
+    When writing a loop, you will not be able to return to previous lines once you have pressed Enter. Remember that we can cancel the current command using
+
+    - <kbd>Ctrl</kbd>\+<kbd>C</kbd>
+
+    if you notice a mistake that is going to prevent your loop for executing correctly.
+
+
+Now it's your turn! 
 
 !!! dumbbell "For loop Exercise 1"
 
@@ -633,107 +643,109 @@ every time the loop iterates, so it would only have text from the last variable 
         249
         ```
 
+&nbsp;
 
+!!! example "Extra for experts" 
 
-## :rocket: Bonus: Using Basename in for loops
+    ## Using Basename in for loops
 
-Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the `.fastq` extension from the files that we've been working with.
+    Basename is a function in UNIX that is helpful for removing a uniform part of a name from a list of files. In this case, we will use basename to remove the `.fastq` extension from the files that we've been working with.
 
-!!! terminal "code"
-
-    ```bash
-    $ basename SRR097977.fastq .fastq
-    ```
-
-    We see that this returns just the SRR accession, and no longer has the .fastq file extension on it.
-
-    ```output
-    SRR097977
-    ```
-
-
-!!! quote ""
-    Basename is really powerful when used in a for loop. It allows to access just the file prefix, which you can use to name things. Let's try this.
-
-Inside our for loop, we create a new name variable. We call the basename function inside the parenthesis, then give our variable name from the for loop, in this case `${filename}`, and finally state that `.fastq` should be removed from the file name. It's important to note that we're not changing the actual files, we're creating a new variable called name. The line > echo $name will print to the terminal the variable name each time the for loop runs. Because we are iterating over two files, we expect to see two lines of output.
-
-!!! terminal "code"
-
-    ```bash
-    $ for filename in *.fastq
-    > do
-    > name=$(basename ${filename} .fastq)
-    > echo ${name}
-    > done
-    ```
-
-    Why Parentheses `()` ?
-
-    - **Command Substitution:** The `$(...)` syntax is used for command substitution. It allows you to execute a command and use its output as a value in your script. In this case, `$(basename ${filename} .fastq)` executes the `basename` command and captures its output, which is then assigned to the variable name.
-    - **Clarity:** Using `$(...)` is preferred over backticks (`...`) for command substitution because it is more readable and can be nested more easily.
-
-    Why Curly Braces `{}` ?
-
-    - **Variable Expansion:** The `${filename}` syntax is used to clearly indicate that you are referencing the variable `filename`. This is particularly useful in cases where the variable name might be adjacent to other characters that could be interpreted as part of the variable name.
-    - **Disambiguation:** For example, if you had a variable named `filename_suffix`, writing `$filename_suffix` could lead to ,especially if you are trying to concatenate or manipulate it with other strings. Using `${filename}` makes it clear where the variable name ends.
-    - **Consistency:** While not always required, using curly braces for variable expansion is a common practice that enhances readability and reduces the risk of errors.
-    
-    * * * 
-
-    🙋 : **In  `name=$(basename ${filename} .fastq)`, Can  I switch `{}` and `()` as in `name=${basename $(filename) .fastq}` ?** 🚫
-
-    - **Order Matters:** You must use `()` for command substitution first, and within that, you can use `{}` for variable expansion as needed.
-    - **Contextual Importance:** Always use `$(...)` for command substitution and `${...}` for variable expansion to ensure clarity and correctness in your scripts.
-
-    In summary, while the two types of brackets serve different purposes, their correct order and usage are crucial for the intended functionality of your shell scripts.
-
-!!! dumbbell "Exercise"
-
-    Print the file prefix of all of the `.txt` files in our current directory.
-
-
-    ??? success "Solution"
+    !!! terminal "code"
 
         ```bash
-        $ for filename in *.txt
+        $ basename SRR097977.fastq .fastq
+        ```
+
+        We see that this returns just the SRR accession, and no longer has the .fastq file extension on it.
+
+        ```output
+        SRR097977
+        ```
+
+
+    !!! quote ""
+        Basename is really powerful when used in a for loop. It allows to access just the file prefix, which you can use to name things. Let's try this.
+
+    Inside our for loop, we create a new name variable. We call the basename function inside the parenthesis, then give our variable name from the for loop, in this case `${filename}`, and finally state that `.fastq` should be removed from the file name. It's important to note that we're not changing the actual files, we're creating a new variable called name. The line > echo $name will print to the terminal the variable name each time the for loop runs. Because we are iterating over two files, we expect to see two lines of output.
+
+    !!! terminal "code"
+
+        ```bash
+        $ for filename in *.fastq
         > do
-        > name=$(basename ${filename} .txt)
+        > name=$(basename ${filename} .fastq)
         > echo ${name}
         > done
         ```
 
+        Why Parentheses `()` ?
 
-One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them.
+        - **Command Substitution:** The `$(...)` syntax is used for command substitution. It allows you to execute a command and use its output as a value in your script. In this case, `$(basename ${filename} .fastq)` executes the `basename` command and captures its output, which is then assigned to the variable name.
+        - **Clarity:** Using `$(...)` is preferred over backticks (`...`) for command substitution because it is more readable and can be nested more easily.
 
-!!! terminal-2 "code"
+        Why Curly Braces `{}` ?
 
-    ```bash
-    for filename in *.txt
-    do
-    name=$(basename ${filename} .txt)
-    mv ${filename} ${name}_2026.txt
-    done
-    ```
+        - **Variable Expansion:** The `${filename}` syntax is used to clearly indicate that you are referencing the variable `filename`. This is particularly useful in cases where the variable name might be adjacent to other characters that could be interpreted as part of the variable name.
+        - **Disambiguation:** For example, if you had a variable named `filename_suffix`, writing `$filename_suffix` could lead to ,especially if you are trying to concatenate or manipulate it with other strings. Using `${filename}` makes it clear where the variable name ends.
+        - **Consistency:** While not always required, using curly braces for variable expansion is a common practice that enhances readability and reduces the risk of errors.
+        
+        * * * 
 
-- `mv ${filename} ${name}_2026.txt:`This line renames the file. 
-    - `${filename}` is the original file name.
-    - `${name}_2026.txt` is the new file name, which consists of the original name (without .txt), followed by "_2026.txt".
+        🙋 : **In  `name=$(basename ${filename} .fastq)`, Can  I switch `{}` and `()` as in `name=${basename $(filename) .fastq}` ?** 🚫
 
-!!! dumbbell "Exercise"
+        - **Order Matters:** You must use `()` for command substitution first, and within that, you can use `{}` for variable expansion as needed.
+        - **Contextual Importance:** Always use `$(...)` for command substitution and `${...}` for variable expansion to ensure clarity and correctness in your scripts.
 
-    Remove `_2026` from all of the `.txt` files.
+        In summary, while the two types of brackets serve different purposes, their correct order and usage are crucial for the intended functionality of your shell scripts.
+
+    !!! dumbbell "Exercise"
+
+        Print the file prefix of all of the `.txt` files in our current directory.
 
 
+        ??? success "Solution"
 
-    ??? success "Solution"
+            ```bash
+            $ for filename in *.txt
+            > do
+            > name=$(basename ${filename} .txt)
+            > echo ${name}
+            > done
+            ```
+
+
+    One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them.
+
+    !!! terminal-2 "code"
 
         ```bash
-        $ for filename in *_2026.txt
-        > do
-        > name=$(basename ${filename} _2026.txt)
-        > mv ${filename} ${name}.txt
-        > done
+        for filename in *.txt
+        do
+        name=$(basename ${filename} .txt)
+        mv ${filename} ${name}_2026.txt
+        done
         ```
+
+    - `mv ${filename} ${name}_2026.txt:`This line renames the file. 
+        - `${filename}` is the original file name.
+        - `${name}_2026.txt` is the new file name, which consists of the original name (without .txt), followed by "_2026.txt".
+
+    !!! dumbbell "Exercise"
+
+        Remove `_2026` from all of the `.txt` files.
+
+
+
+        ??? success "Solution"
+
+            ```bash
+            $ for filename in *_2026.txt
+            > do
+            > name=$(basename ${filename} _2026.txt)
+            > mv ${filename} ${name}.txt
+            > done
+            ```
 
 
 !!! graduation-cap "keypoints"

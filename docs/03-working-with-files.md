@@ -61,6 +61,34 @@ This command:
  
     lists only the file that ends with `977.fastq`.
 
+The wildcard `*` represents *0 or more of any number or character*. This means that if we, for example, put the wildcard at the start of a a file name, it will match that file (and any other potential file that has more characters):
+
+!!! terminal "code"
+
+    ```bash
+    $ ls *SRR097977.fastq
+    ```
+
+    ```output
+    SRR097977.fastq
+    ```
+
+If you want to match *1 exact number or character*, you can use instead the `?` character
+
+!!! terminal-2 "Try these examples and compare the output:"
+
+    ```bash
+    ls ?SRR097977.fastq
+    ls *SRR097977.fastq
+    ls *.fastq
+    ls ?.fastq
+    ls ?????????.fastq
+    ls SRR097???.fastq
+    ```
+
+
+
+We can also use explore some of the software pre-installed in our environment:  
 
 !!! terminal-2 "Lists every file in `/usr/bin` that ends with the characters `11`"
 
@@ -104,43 +132,6 @@ This command:
            Bonus: `ls /usr/bin/*[ac]*`
 
 
-!!! dumbbell "Exercise"
-
-    `echo` is a built-in shell command that writes its arguments, like a line of text to standard output.
-    The `echo` command can also be used with pattern matching characters, such as wildcard characters.
-    Here we will use the `echo` command to see how the wildcard character is interpreted by the shell.
-    
-    ```bash
-    $ echo *.fastq
-    ```
-    
-    ```output
-    SRR097977.fastq SRR098026.fastq
-    ```
-
-    The `*` is expanded to include any file that ends with `.fastq`. We can see that the output of
-    `echo *.fastq` is the same as that of `ls *.fastq`.
-    
-    What would the output look like if the wildcard could _not_ be matched? Compare the outputs of
-    `echo *.missing` and `ls *.missing`.
-
-    ??? success "Solution"
-    
-        ```bash
-        $ echo *.missing
-        ```
-        
-        ```output
-        *.missing
-        ```
-        
-        ```bash
-        $ ls *.missing
-        ```
-        
-        ```output
-        ls: cannot access '*.missing': No such file or directory
-        ```
 
 
 ## Command History
@@ -256,6 +247,16 @@ Some navigation commands in `less`:
 to search for and press `enter`. The screen will jump to the next location where
 that word is found.
 
+Search and match commands in `less`: 
+
+| key              | action                 |
+| ---------------- | ---------------------- |
+| <kbd>/</kbd> | to intiate a search (type text to search, then press <kbd>enter</kbd>)         |
+| <kbd>n</kbd>     | show next match        |
+| <kbd>N</kbd>     | show previous |
+
+
+
 **Shortcut:** If you hit "/" then "enter", `less` will repeat
 the previous search. `less` searches from the current location and
 works its way forward. Scroll up a couple lines on your terminal to verify
@@ -271,15 +272,21 @@ forward to the next instance of this sequence motif. If you instead type `?` and
 return, you will search backwards and move up the file to previous examples of this motif.
 
 
-!!! dumbbell "Exercise"
+!!! dumbbell "Exercises"
 
-    What are the next three nucleotides (characters) after the first instance of the sequence quoted above?
-
-
+    What are the next three nucleotides (characters) after the first instance of the sequence `TTTTT` quoted above?
 
     ??? success "Solution"
     
         `CAC`
+
+    What is the sequence ID of the *last match* that contains the sequence `TTCAAA` ?
+    (The sequence ID begins with \@SRR097977 and is the line above the sequence) 
+
+    ??? success "Solution"
+    
+        SRR097977.216
+
 
 Remember, the `man` program actually uses `less` internally and
 therefore uses the same commands, so you can search documentation
