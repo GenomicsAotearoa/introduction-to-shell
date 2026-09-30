@@ -605,7 +605,7 @@ Now it's your turn!
 
 !!! dumbbell "For loop Exercise 2"
 
-    Use a for loop to echo back the name of each file, count how many reads are in each fastq line, and save the output of both commands in a new file called `read_counts.txt`. 
+    Use a for loop to echo back the name of each file, count how many reads are in each fastq file, and save the output of both commands in a new file called `read_counts.txt`. 
 
     * The command to count how many reads are in each fastq is `grep -c "^@SRR"  filename` (this translates as count how many lines start with \@SRR) 
 

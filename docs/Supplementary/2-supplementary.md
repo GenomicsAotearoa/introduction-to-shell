@@ -52,8 +52,9 @@ Our goal for now is to change permissions on this file so that you no longer hav
 
 !!! info "Other useful `chmod` options"
 
-    * `chmod +w file` – Makes a file executable  
+    * `chmod +w file` – Makes a file writable for everyone    
     * `chmod -R -w directory` – Removes write access recursively to a directory and everything in it  
+    * `chmod u+rwx,g-rwx,o-rwx file ` –  Changes user, group and other separately in one command   
     * `chmod 644 file`  –  `rw-r--r--` (Owner can read write, everyone else read only - good for most files)   
     * `chmod 755 file`  –  `rwxr-xr-x` (Owner can read write execute, everyone else read and execute only - good for scripts)   
     * `chmod 600 file`  – ` rw-------` (Owner can read write, everyone else no permissions - more secure)      

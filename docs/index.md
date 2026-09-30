@@ -1,7 +1,7 @@
-# Introduction to Shell
+# Introduction to Shell for Bioinformatics
 
 
-![image](./fig/icon.png){: width="350px" .center}
+[![image](./fig/icon.png){: width="350px" .center}](https://en.wikipedia.org/wiki/Tux_(mascot))
 
 
 !!! circle-info ""
@@ -24,10 +24,10 @@
 |:---------------------------------------------------|:-------------|
 |[Unix, Linux and UNIX Shell](./0-unixl-linux-overview.md)|Quick overview on UNIX operating system and it's importance|
 |1. [Introducing the shell](./01-introduction.md)| Introduce `cd` `ls`  |
-|2. [Navigating files and directories](./02-the-filesystem.md)| moving around the filesystem. Introduce absolute vs relative path |
+|2. [Navigating files and directories](./02-the-filesystem.md)| Moving around the filesystem. Introduce absolute vs relative path |
 |3. [Working with files and directories](./03-working-with-files.md)| View, search within, copy, move, and rename files. Create new directories |
-|4. [Redirection](./04-redirection.md)| Employ the grep command to search for information within files | 
-|5. [Writing scripts and working with data](./05-writing-scripts.md)| How to use a terminal based text editor | 
+|4. [Redirection and for loops](./04-redirection.md)| Employ the grep command to search for information within files and run commands over multiple files with for loops  | 
+|5. [Writing scripts and working with data](./05-writing-scripts.md)| How to use a terminal based text editor to make a script | 
 |6. [Project Organisation](./06-organization.md)| Create a file system for a bioinformatics project | 
 
  - - - 
@@ -39,7 +39,7 @@
     This lesson assumes no prior experience with the tools covered in the workshop.
     However, learners are expected to have some familiarity with biological concepts,
     including the
-    concept of genomic variation within a population. Participants should bring their laptops and plan to participate actively.
+    concept of genomic variation within a population.
 
 - - - 
 
